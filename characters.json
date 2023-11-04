@@ -1,0 +1,42 @@
+[
+    {
+      "full_name": "Rick Sanchez",
+      "age": "70",
+      "about": "Alcoholic, genius scientist"
+    },
+    {
+      "full_name": "Morty Smith",
+      "age": "14",
+      "about": "Timid, good-hearted"
+    },
+    {
+      "full_name": "Summer Smith",
+      "age": "17",
+      "about": "Rebellious, adventurous"
+    },
+    {
+      "full_name": "Beth Smith",
+      "age": "34",
+      "about": "Independent, strong-willed"
+    },
+    {
+      "full_name": "Jerry Smith",
+      "age": "34",
+      "about": "Insecure, easily manipulated"
+    },
+    {
+      "full_name": "Abadango Cluster Princess",
+      "age": "Unknown",
+      "about": "Warrior, leader"
+    },
+    {
+      "full_name": "Abradolf Lincler",
+      "age": "Unknown",
+      "about": "Genetic experiment, conflicted"
+    },
+    {
+      "full_name": "Adjudicator Rick",
+      "age": "Unknown",
+      "about": "High-ranking official, strict"
+    }
+  ]

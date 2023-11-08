@@ -1,0 +1,149 @@
+body {
+    background-color: var(--light-font-solid);
+}
+
+.h1-login {
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--dark-solid);
+    margin-top: 100px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.correo {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.correo label {
+    font-family: var(--base-font);
+    font-size: var(--font-large);
+    font-weight: 400;  
+    text-transform: capitalize;
+    margin-left: 60px;
+    }
+
+.correo input {
+    border: none;
+    border-bottom: 2px solid var(--primary-solid);
+    gap: 50px;
+    font-family: var(--base-font);
+    font-size: 20px;
+    font-weight: 400; 
+    margin-left: 100px;
+}
+
+.contraseña {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.contraseña label{
+    font-family: var(--base-font);
+    font-size: var(--font-large);
+    font-weight: 400;  
+    text-transform: capitalize;
+    margin-left: 60px;
+}
+
+.contraseña input {
+    border: none;
+    border-bottom: 2px solid var(--primary-solid);
+    font-family: var(--base-font);
+    font-size: 20px;
+    font-weight: 400; 
+    margin-left: 35px;
+}
+
+.registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.ingreso {
+        font-family: var(--base-font);
+        font-size: var(--font-xsmall);
+        background-color: var(--primary-solid);
+        color: var(--light-font-solid);
+        padding: var(--spacing-8) var(--spacing-12);
+        text-transform: capitalize;
+        text-align: center; 
+        border: none;
+        margin-right: 10px;
+}
+
+.registro input {
+    border: 3px solid var(--dark-solid);
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.registro label {
+    font-family: var(--base-font);
+        font-size: var(--font-large);
+        text-transform: capitalize;
+        margin-left: 5px;
+}
+
+.olvido {
+    display: flex;
+    justify-content: center;
+    font-family: var(--base-font);
+    font-size: var(--font-small);
+    font-weight: 400;
+    color: #1D84B5;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*RESPONSIVE LOGIN*/
+
+@media (max-width: 720px) {
+
+    .correo {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .correo label {
+        margin-left: 0px;
+    }
+
+    .correo input {
+        margin-left: 0px;
+    }
+
+    .contraseña {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .contraseña label {
+        margin-left: 0px;
+    }
+
+    .contraseña input {
+        margin-left: 0px;
+    }
+    
+}

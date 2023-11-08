@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+// BORRAME, y HACEME DE NUEVO!! 666 //////////////////////////////
 
 router.get ('/', (req, res) => {
 res.send("admin productos")

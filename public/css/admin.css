@@ -1,0 +1,164 @@
+.espacio-admin {
+  margin: var(--spacing-20);
+}
+
+
+.searching {
+  display: flex;
+  justify-content: left;
+}
+
+.buscador-adm {
+  width: 45rem;
+  height: 4rem;
+  text-align: left;
+  font-size: var(--font-medium);
+  font-weight: 500;
+  color: var(--dark-300);
+  padding-left: 2%;
+  border: 2px solid var(--dark-bg-solid);
+  border-radius: 6px;
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-bottom: 2%;
+}
+
+.listado {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+}
+
+.h1-adm {
+  display: inherit;
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 50%;
+  flex-grow: 0.6;
+}
+
+.agregar-adm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-large);
+  text-transform: uppercase;
+  font-weight: 700;
+  align-content: center;
+  margin: auto;
+
+}
+
+table {
+  table-layout: auto;
+  width: 94%;
+  justify-content: space-between;
+}
+
+thead {
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+  font-weight: 700;
+}
+
+thead th:nth-child(1) {
+  width: 5%;
+}
+
+thead th:nth-child(2) {
+  width: 12%;
+}
+
+thead th:nth-child(3) {
+  width: 36%;
+}
+
+thead th:nth-child(4) {
+  width: 36%;
+}
+
+td {
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+}
+
+th,
+td {
+  padding: var(--spacing-12);
+  text-align: center;
+
+}
+
+#codigo__producto,
+#categoria__producto {
+  text-transform: uppercase;
+}
+
+#nombre__producto {
+  text-transform: capitalize;
+}
+
+
+/*RESPONSIVE ADMIN*/
+
+@media (max-width: 900px) {
+
+  .searching {
+    justify-content: center;
+    margin-bottom: var(--spacing-20);
+  }
+
+  .listado {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .h1-adm {
+    display: flex;
+    justify-content: center;
+    font-size: var(--font-large);
+    width: 100vh;
+  }
+
+  .agregar-adm {
+    margin: 10px;
+    flex-direction: row-reverse;
+    align-items: center;
+    font-size: var(--font-small);
+  }
+
+  #img_suma {
+    width: 30px;
+    height: 30px;
+  }
+
+  td {
+    font-size: var(--font-medium);
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .listado {
+    align-items: center;
+    gap: 10px; 
+  }
+
+  .h1-adm {
+    font-size: var(--font-medium);
+  }
+}
+
+@media (max-width: 470px) {
+
+  .buscador-adm {
+    width: 250rem;
+  }
+  
+}
+

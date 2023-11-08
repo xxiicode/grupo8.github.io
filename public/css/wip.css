@@ -1,0 +1,53 @@
+body{
+    background-color: var(-light-bg-solid);
+}
+.wip {
+    font-family: var(--alternative-font);
+    font-size: var(--font-jumbo);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: var(--spacing-128);
+}
+
+.wip2 {
+    font-family: var(--alternative-font);
+    font-size: var(--font-large);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    margin: var(--spacing-68);
+}
+
+/*RESPONSIVE WIP*/
+
+@media (max-width: 850px) {
+
+    .wip {
+        font-size: var(--font-large);
+        margin: 0px;
+        margin-top: var(--spacing-36);
+        margin-bottom: var(--spacing-36);
+    }
+
+    .wip2 {
+        font-size: var(--font-medium);
+        margin: 0px;
+        margin-bottom: var(--spacing-28);
+    }
+
+}
+
+@media (max-width: 485px) {
+
+    .wip {
+        font-size: var(--font-medium);
+    }
+
+    .wip2 {
+        font-size: var(--font-small);
+    }
+
+} 

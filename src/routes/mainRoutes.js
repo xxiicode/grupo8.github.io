@@ -1,22 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const mainControllers = require('../controllers/mainControllers');
 
+router.get("/home", mainControllers.home);
 
-router.get("/", (req, res) => {
-    res.send("pagina Index");
-});
+router.get("/contact", mainControllers.contact);
 
-router.get("/contact", (req, res) => {
-    res.send("pagina Contact");
-});
+router.get("/about", mainControllers.about);
 
-router.get("/about", (req, res) => {
-    res.send("pagina about");
-});
-
-router.get("faqs", (req, res) => {
-    res.send("pagina faqs");
-});
+router.get("faqs", mainControllers.faq);
 
 
 

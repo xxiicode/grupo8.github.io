@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi: pcolor.red("hola")
-const fs = require('node:fs');
+const fs = require("node:fs");
 const mainRoutes = require('./src/routes/mainRoutes');
 const exAdminRoutes = require('./src/routes/exAdminRoutes');
 const methodOverride = require('method-override');
@@ -11,6 +11,8 @@ const path = require('node:path'); //llama el modulo nativo de node llamado path
 // EJS
 app.set("view engine", "ejs"); // esto es para que funcione ejs
 app.set("views", path.join(__dirname, "./src/views"));
+/* app.set("views", "./src/views"); es lo mismo que el de arriba*/
+
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
 app.use(express.static("public"));
@@ -25,8 +27,11 @@ app.set("view engine", "ejs"); // esto es para que funcione ejs
 
 
 // Listen (va al final)
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     res.status(404).send('Error404: Gracias, vuelvas prontos');
+}); */
+app.use((req, res, next) => {
+    res.status(404).render('404');
 });
 
 const PORT = 3000;
@@ -55,11 +60,6 @@ app.get('/personajes', (req, res) => {
 app.get('/css', (req, res) => { // test para mostrar rutas dentro de public sin el ' .html'
     res.sendFile(__dirname + '/public/css/main.css')
 });
-
-
-
-
-
 
 
 

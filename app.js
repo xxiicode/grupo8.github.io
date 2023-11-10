@@ -4,8 +4,13 @@ const app = express();
 const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi: pcolor.red("hola")
 const fs = require('node:fs');
 const mainRoutes = require('./src/routes/mainRoutes');
-const adminRoutes = require('./src/routes/adminRoutes');
+const exAdminRoutes = require('./src/routes/exAdminRoutes');
 const methodOverride = require('method-override');
+const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
+
+// EJS
+app.set("view engine", "ejs"); // esto es para que funcione ejs
+app.set("views", path.join(__dirname, "./src/views"));
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
 app.use(express.static("public"));
@@ -13,20 +18,26 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false })); // esto es para que funcione los formularios
 app.use(express.json()); // para las peticiones json
 app.use('/', mainRoutes);
-app.use('/admin/productos', adminRoutes);
+app.use('/admin/ex', exAdminRoutes);
+app.set("view engine", "ejs"); // esto es para que funcione ejs
+
+
+
+
+// Listen (va al final)
+app.use((req, res, next) => {
+    res.status(404).send('Error404: Gracias, vuelvas prontos');
+});
+
+const PORT = 3000;
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
 
 
 
 
 
-
-
-
-
-
-
-// Ejemplo del forulario clase 27---
+// Ejemplo del forulario clase 27--- /////////////////////////No anda por que esta despues del puntoLISTEN /////////////////
 // esto es para mandar datos desde el formulario de contacto
 app.post('/contacto', (req, res) => {
     console.log(req.body);
@@ -49,19 +60,12 @@ app.get('/css', (req, res) => { // test para mostrar rutas dentro de public sin 
 
 
 
-app.use((req, res, next) => {
-    res.status(404).send('Error404: Gracias, vuelvas prontos');
-});
 
-
-
-const PORT = 3000;
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
 
 // Path & test: 
 
-const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
+// const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
 console.log(path.sep); //esto nos muestra el separador de rutas, en este caso es /
 
 console.log(pcolor.red('hola')); //escribe hola en la consola, uso pcolor para que sea rojo

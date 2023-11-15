@@ -7,11 +7,15 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const exAdminRoutes = require('./src/routes/exAdminRoutes');
 const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
-
+const expresslayouts= require('express-ejs-layout');
 // EJS
 app.set("view engine", "ejs"); // esto es para que funcione ejs
-app.set("views", path.join(__dirname, "./src/views"));
+app.set("views",  "./src/views");
+
+app.use(expresslayouts);
+app.set('layout', 'layouts/layout')
 /* app.set("views", "./src/views"); es lo mismo que el de arriba*/
+
 
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
@@ -22,6 +26,8 @@ app.use(express.json()); // para las peticiones json
 app.use('/', mainRoutes);
 app.use('/admin/ex', exAdminRoutes);
 app.set("view engine", "ejs"); // esto es para que funcione ejs
+
+
 
 
 

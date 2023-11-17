@@ -5,6 +5,7 @@ const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi:
 const fs = require("node:fs");
 const mainRoutes = require('./src/routes/mainRoutes');
 const exAdminRoutes = require('./src/routes/exAdminRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false })); // esto es para que funcione l
 app.use(express.json()); // para las peticiones json
 app.use('/', mainRoutes);
 app.use('/admin/ex', exAdminRoutes);
+app.use('/auth', authRoutes);
 app.set("view engine", "ejs"); // esto es para que funcione ejs
 
 

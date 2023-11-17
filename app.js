@@ -13,18 +13,20 @@ app.set("view engine", "ejs"); // esto es para que funcione ejs
 app.set("views", path.join(__dirname, "./src/views"));
 /* app.set("views", "./src/views"); es lo mismo que el de arriba*/
 
+// Layouts
+app.use(expressLayouts); // para usar layouts de ejs, va luego del "view engine"
+app.set("layout", "layouts/layout"); // le dice donde va a estar el archivo layout, en este caso en la carpeta layouts
+
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"public")));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false })); // esto es para que funcione los formularios
 app.use(express.json()); // para las peticiones json
 app.use('/', mainRoutes);
 app.use('/admin/ex', exAdminRoutes);
 
-// Layouts
-app.use(expressLayouts); // para usar layouts de ejs, va luego del "view engine"
-app.set("layout", "layouts/layout"); // le dice donde va a estar el layout, en este caso en la carpeta layouts
+
 
 
 

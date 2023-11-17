@@ -4,6 +4,7 @@ const app = express();
 const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi: pcolor.red("hola")
 const fs = require("node:fs");
 const mainRoutes = require('./src/routes/mainRoutes');
+const adminRoutes = require('./src/routes/adminRoutes');
 const exAdminRoutes = require('./src/routes/exAdminRoutes');
 const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
@@ -24,6 +25,7 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false })); // esto es para que funcione los formularios
 app.use(express.json()); // para las peticiones json
 app.use('/', mainRoutes);
+app.use('/admin', adminRoutes);
 app.use('/admin/ex', exAdminRoutes);
 
 

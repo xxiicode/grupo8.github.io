@@ -1,0 +1,24 @@
+    <main class="container">
+        <h1 class="h1-login">ingresar a mi cuenta</h1>
+        <form class="form-login" action="">
+            <div class="correo">
+                <label for="email">email:</label>
+                <input type="email" id="email" name="email" placeholder="johndoe@correo.com"><br>
+            </div>
+            <div class="contraseña">
+                <label for="password">contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="•••••••••"><br>
+            </div>
+            <div class="registro">
+                <a href="/admin"><button class="ingreso">ingresar</button></a>
+                <input type="checkbox" id="recordar" name="recordar">
+                <label for="recordar">recordarme</label>
+            </div>
+        </form>
+        <a class="olvido" href="wip">olvidé mi contraseña</a>
+    </main>
+
+    <%- contentFor('title') %>
+    Login!
+    <%- contentFor('extracss') %>
+    <link rel="stylesheet" href="/css/login.css">

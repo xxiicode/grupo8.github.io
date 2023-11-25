@@ -1,5 +1,5 @@
-    <main class="create container">
-        <h1> Crear nuevo item</h1>
+    <main class="container edit">
+        <h1> Editor de items</h1>
         <div>
             <form class="form-crear-editar" action="">
                 <div>
@@ -21,10 +21,12 @@
                 <div>
                     <label for="product">Nombre del producto: </label>
                     <input type="text" placeholder="Kakashi Hatake Shippuden Saga " id="product">
+                    Kakashi Hatake Shippuden Saga
                 </div>
 
                 <div>
-                    <textarea name="" placeholder="Descripción del producto" id="text">                 </textarea>
+                    <textarea name="" placeholder="Descripción del producto" id="text">Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.
+                    </textarea>
                 </div>
 
                 <div>
@@ -47,11 +49,11 @@
                     <input type="text" placeholder="10%" id="descuento">
                     <div>
                         <label for="cuotas">Cuotas:</label>
-                        <select type="text" id="cuotas">
-                            <option value="">6 Cuotas sin interés</option>
-                        </select>
+                    <select type="text" id="cuotas">
+                        <option value="">6 Cuotas sin interés</option>
+                    </select>
                     </div>
-
+                    
                 </div>
 
                 <div>
@@ -59,9 +61,18 @@
                     <button type="file" name="archivos" id="archivos">Elegir archivos</button>
                     <p>No se ha seleccionado ningún archivo</p>
                 </div>
+                <div class="mini-imgs">
+                    <article>
+                        <img src="/assets/img/naruto/kakashi_hatake_front.svg" alt="#">
+                        <span>Frente</span>
+                    </article>
+                    <article>
+                        <img src="/assets/img/naruto/kakashi_hatake_back.svg" alt="#">
+                        <span>Dorso</span>
+                    </article>
+                </div>
                 <div>
-                    <button type="submit">Agregar producto</button>
-                    <button type="submit">Limpiar</button>
+                    <button type="submit">Modificar productos</button>
                 </div>
             </form>
         </div>
@@ -69,6 +80,5 @@
     </main>
 
     <%- contentFor('title') %>
-    Create!
-    <%- contentFor("extracss") %>
-    <link rel="stylesheet" href="/css/create.css">
+    Edit!
+    <%- contentFor('extracss') %>

@@ -1,0 +1,29 @@
+<div>
+    <h1>Test page</h1>
+    <h2> lista de tareas traida con .js</h2>
+
+    <p>Usando controladores y js llenamos la siguiente lista</p>
+    <br>
+    <form action="/test" method="post">
+        <div>
+            <label for="title"> Nombre!</label>
+            <input type="text" name="title" id="title" />
+        </div>
+        <button type="submit">Enviar!</button>
+    </form>
+</div>
+<ul>
+    <% tareas.forEach (tarea=> { %>
+<%# <li> <%- tarea.title %></li> %>
+<%- include('partials/item', { tarea }) %>
+        <% }) %>
+</ul>
+</div>
+
+
+
+<%- contentFor("title") %>
+    test!
+
+    <%- contentFor("extracss") %>
+        <link rel="stylesheet" href="/css/main.css">

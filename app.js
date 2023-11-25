@@ -12,7 +12,7 @@ const path = require('node:path'); //llama el modulo nativo de node llamado path
 const expressLayouts = require('express-ejs-layouts'); // para usar layouts de ejs
 // EJS
 app.set("view engine", "ejs"); // esto es para que funcione ejs
-app.set("views", path.join(__dirname, "./src/views"));
+app.set("views", path.join(__dirname, "/src/views"));
 /* app.set("views", "./src/views"); es lo mismo que el de arriba*/
 
 // Layouts

@@ -17,9 +17,8 @@ app.set("views", path.join(__dirname, "./src/views"));
 
 // Layouts
 app.use(expressLayouts); // para usar layouts de ejs, va luego del "view engine"
-app.set("layout", "layouts/mainLayout"); // le dice donde va a estar el archivo layout, en este caso en la carpeta layouts
-app.set("layout", "layouts/adminLayout");
-app.set("layout", "layouts/shopLayout");
+app.set("layout", "layouts/mainLayout"); // este seria el layout por defecto
+
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
 app.use(express.static(path.join(__dirname,"public")));

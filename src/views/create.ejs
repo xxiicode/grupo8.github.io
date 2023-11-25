@@ -1,0 +1,75 @@
+    <main class="create container">
+        <h1> Crear nuevo item</h1>
+        <div>
+            <form class="form-crear-editar" action="">
+                <div>
+                    <div>
+                        <label for="category">categoría:</label>
+                        <select name="" id="category">
+                            <option value=""> Figuras</option>
+                            <option value=""> otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="licencia">Licencia:</label>
+                        <select name="" id="licencia">
+                            <option value=""> Naruto Shippuden</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="product">Nombre del producto: </label>
+                    <input type="text" placeholder="Kakashi Hatake Shippuden Saga " id="product">
+                </div>
+
+                <div>
+                    <textarea name="" placeholder="Descripción del producto" id="text">Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.
+                    </textarea>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="sku">SKU:</label>
+                        <input type="text" placeholder="NAR001012" id="sku">
+                    </div>
+                    <div>
+                        <label for="price">Precio:</label>
+                        <input type="text" placeholder="$ 1.799,00" id="price">
+                    </div>
+                    <div>
+                        <label for="stock">Stock:</label>
+                        <input type="text" placeholder="10" id="stock">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="descuento">Descuento:</label>
+                    <input type="text" placeholder="10%" id="descuento">
+                    <div>
+                        <label for="cuotas">Cuotas:</label>
+                        <select type="text" id="cuotas">
+                            <option value="">6 Cuotas sin interés</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div>
+                    <label for="">Imágenes:</label>
+                    <button type="file" name="archivos" id="archivos">Elegir archivos</button>
+                    <p>No se ha seleccionado ningún archivo</p>
+                </div>
+                <div>
+                    <button type="submit">Agregar producto</button>
+                    <button type="submit">Limpiar</button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <%- contentFor('title') %>
+    Create!
+    <%- contentFor("extracss") %>
+    <link rel="stylesheet" href="/css/create.css">

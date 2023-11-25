@@ -1,0 +1,35 @@
+<p>soy el mainLayout</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta -->
+    <meta property="og:title" content="Home | Funko Store" />
+    <meta property="og:url" content="https://#/">
+    <meta name="keywords" content="Funko CodoAcodo team8" />
+    <meta name="description" property="og:description" content="Proyecto final del grupo 8 en la comision..." />
+    <meta property="og:image" content="#" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- end meta-->
+
+    <title><%- title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <%- extracss %>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+<%- include ('../partials/Header.ejs') %>
+
+<%- body %>
+
+<%- include ('../partials/footer.ejs') %>
+
+</body>
+
+</html>

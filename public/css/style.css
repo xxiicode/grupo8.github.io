@@ -693,16 +693,27 @@ div.carrito-item {
     font-weight: 400;
     padding-top: var(--spacing-20);
 }
-
+.cantidades {
+    display: flex;
+}
 .cantidad {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .cantidad input {
     height: 40px;
     max-width: 94px;
+}
+.cantidad button  {
+    border: none;
+    background: none;
+}
 
+input#quantity {
+    width: 50px;
+    text-align: center;
 }
 
 .cantidad div {
@@ -721,6 +732,8 @@ div.carrito-item {
     cursor: pointer;
     text-align: end;
 }
+
+
 
 /*resumen*/
 .resumen h2 {
@@ -838,8 +851,8 @@ footer {
     max-width: 827.63px;
 }
 
-body#create h1,
-body#edit h1 {
+.create h1,
+.edit h1 {
     font-size: 42px;
     font-weight: 700;
     text-transform: uppercase;

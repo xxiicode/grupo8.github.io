@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404</title>
-    <link type="text/css" rel="stylesheet" href="../css/style.css">
-    <link type="text/css" rel="stylesheet" href="../css/wip.css">
-    <style>
-        body {background-color: #72d5a7;}
-        img {display: block;}
-    </style>
-</head>
-
-<body>
-    <!-- Header -->
-    <%- include('partials/header.ejs') %>
-        <!-- End Header -->
-
         <main>
             <img src="/assets/img/404.png" alt="error 404, content not found">
         </main>
 
-        <!--fOOTER-->
-        <%- include('partials/footer.ejs') %>
-            <!-- end footer -->
-</body>
+<%- contentFor('title') %>
+error 404
+<%- contentFor('extracss') %>
+<link type="text/css" rel="stylesheet" href="css/wip.css">
+<link rel="stylesheet" href="css/404.css">        

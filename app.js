@@ -4,6 +4,7 @@ const app = express();
 const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi: pcolor.red("hola")
 const fs = require("node:fs");
 const mainRoutes = require('./src/routes/mainRoutes');
+const shopRoutes = require('./src/routes/shopRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
 const exAdminRoutes = require('./src/routes/exAdminRoutes');
 const authRoutes = require('./src/routes/authRoutes');
@@ -17,8 +18,9 @@ app.set("views", path.join(__dirname, "./src/views"));
 
 // Layouts
 app.use(expressLayouts); // para usar layouts de ejs, va luego del "view engine"
-app.set("layout", "layouts/layout"); // le dice donde va a estar el archivo layout, en este caso en la carpeta layouts
-
+app.set("layout", "layouts/mainLayout"); // le dice donde va a estar el archivo layout, en este caso en la carpeta layouts
+app.set("layout", "layouts/adminLayout");
+app.set("layout", "layouts/shopLayout");
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
 app.use(express.static(path.join(__dirname,"public")));
@@ -26,6 +28,7 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false })); // esto es para que funcione los formularios
 app.use(express.json()); // para las peticiones json
 app.use('/', mainRoutes);
+app.use('/shop', shopRoutes);
 app.use('/admin', adminRoutes);
 app.use('/admin/ex', exAdminRoutes);
 app.use('/auth', authRoutes);
@@ -39,7 +42,7 @@ app.set("view engine", "ejs"); // esto es para que funcione ejs
     res.status(404).send('Error404: Gracias, vuelvas prontos');
 }); */
 app.use((req, res, next) => {
-    res.status(404).render('404');
+    res.status(404).render("404",{layout: "layouts/mainLayout"});
 });
 
 const PORT = 3000;
@@ -79,6 +82,7 @@ console.log(path.sep); //esto nos muestra el separador de rutas, en este caso es
 console.log(pcolor.red('hola')); //escribe hola en la consola, uso pcolor para que sea rojo
 
 const test = require('./test'); // importa el archivo test.js, osea viene el chau! y el mensajeTest(sin log) (green)
+const { shop } = require("./src/controllers/shopControllers");
 
 console.log(pcolor.blue(test)); // imprime en consola lo que esta en test.js y no tiene su propio console log.
 

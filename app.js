@@ -10,6 +10,9 @@ const authRoutes = require('./src/routes/authRoutes');
 const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
 const expressLayouts = require('express-ejs-layouts'); // para usar layouts de ejs
+
+
+
 // EJS
 app.set("view engine", "ejs"); // esto es para que funcione ejs
 app.set("views", path.join(__dirname, "./src/views"));
@@ -24,13 +27,11 @@ app.set("layout", "layouts/mainLayout"); // este seria el layout por defecto
 app.use(express.static(path.join(__dirname,"public")));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false })); // esto es para que funcione los formularios
-app.use(express.json()); // para las peticiones json
+// app.use(express.json());  para las peticiones json
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
-app.set("view engine", "ejs"); // esto es para que funcione ejs
-
 
 
 

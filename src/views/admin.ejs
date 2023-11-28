@@ -1,0 +1,55 @@
+
+<main class="container">
+    <div class="espacio-admin">
+    <!--Searchbar-->
+    <section class="searching">
+        <img id="img_lupa" src="../assets/img/icons/search_icon.svg" alt="lupa">
+        <input class="buscador-adm" type="text" placeholder="código, nombre o categoria">
+    </section>
+    <!--End searchbar-->
+
+    <section class="listado">
+        <h1 class="h1-adm">listado de productos</h1>
+        <a class="agregar-adm" href="/pages/create.html">agregar<img id="img_suma" src="../assets/img/icons/signo-mas-round.svg"
+            alt="signo de suma"></a>
+    </section>
+    <!--tabla de productos-->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Nombre del producto</th>
+                <th>Categoría</th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>"
+        <tr>
+            <td id="id__producto">1</td>
+            <td id="código__producto">STW001001</td>
+            <td id="nombre__producto">baby yoda blueball</td>
+            <td id="categoria__producto">star wars</td>
+            <td>
+                <a href="/pages/./edit.html"><img src="../assets/img/icons/edit_pencil.svg" alt="Dibujo de lapiz, boton para ir a editar el producto"></a>
+                </a>
+                </td>
+            <td>
+                <a href="/pages/#"><img src="../assets/img/icons/delete_trash.svg" lat="Dibujo de tacho de basura, boton para eliminar el producto">
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--End tabla productos-->
+</div>
+</main>
+
+
+<%- contentFor('meta') %>
+<meta name="description" content="-Admin Funko Shop- Crear, Editar o Eliminar el Listado de Productos de la Tienda ">
+
+<%- contentFor('title') %> 
+Admin
+

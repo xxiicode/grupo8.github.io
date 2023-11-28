@@ -1,16 +1,28 @@
+<%- contentFor('meta') %>
+<meta name="description" content="-Admin Funko Shop- Crear, Editar o Eliminar el Listado de Productos de la Tienda ">
 
+<%- contentFor('title') %> 
+Admin
+
+<%- contentFor('css') %>
+<link type="text/css" rel="stylesheet" href="/css/style.css">
+
+<%- contentFor('extra-css') %>
+<link type="text/css" rel="stylesheet" href="/css/admin.css">
+
+<%- contentFor('body') %>
 <main class="container">
     <div class="espacio-admin">
     <!--Searchbar-->
     <section class="searching">
-        <img id="img_lupa" src="../assets/img/icons/search_icon.svg" alt="lupa">
+        <img id="img_lupa" src="/assets/img/icons/search_icon.svg" alt="lupa">
         <input class="buscador-adm" type="text" placeholder="código, nombre o categoria">
     </section>
     <!--End searchbar-->
 
     <section class="listado">
         <h1 class="h1-adm">listado de productos</h1>
-        <a class="agregar-adm" href="/pages/create.html">agregar<img id="img_suma" src="../assets/img/icons/signo-mas-round.svg"
+        <a class="agregar-adm" href="/admin/create">agregar<img id="img_suma" src="/assets/img/icons/signo-mas-round.svg"
             alt="signo de suma"></a>
     </section>
     <!--tabla de productos-->
@@ -32,11 +44,11 @@
             <td id="nombre__producto">baby yoda blueball</td>
             <td id="categoria__producto">star wars</td>
             <td>
-                <a href="/pages/./edit.html"><img src="../assets/img/icons/edit_pencil.svg" alt="Dibujo de lapiz, boton para ir a editar el producto"></a>
+                <a href="/edit"><img src="/assets/img/icons/edit_pencil.svg" alt="Dibujo de lapiz, boton para ir a editar el producto"></a>
                 </a>
                 </td>
             <td>
-                <a href="/pages/#"><img src="../assets/img/icons/delete_trash.svg" lat="Dibujo de tacho de basura, boton para eliminar el producto">
+                <a href="/pages/#"><img src="/assets/img/icons/delete_trash.svg" lat="Dibujo de tacho de basura, boton para eliminar el producto">
                 </a>
             </td>
         </tr>
@@ -47,9 +59,8 @@
 </main>
 
 
-<%- contentFor('meta') %>
-<meta name="description" content="-Admin Funko Shop- Crear, Editar o Eliminar el Listado de Productos de la Tienda ">
 
-<%- contentFor('title') %> 
-Admin
+
+
+
 

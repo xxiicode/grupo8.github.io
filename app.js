@@ -10,7 +10,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
 const expressLayouts = require('express-ejs-layouts'); // para usar layouts de ejs
-
+const sequelize = require("./src/models/connection") //para conectar a la base de datos
 
 
 // EJS
@@ -44,7 +44,14 @@ app.use((req, res, next) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+app.listen(PORT, async() => {
+    try {
+        await sequelize.authenticate();
+    } catch (error) {console.log(pcolor.red(error));}
+
+    console.log(`http://localhost:${PORT}`)
+});
+
 
 
 

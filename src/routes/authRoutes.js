@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 const authControllers = require('../controllers/authControllers');
 
-router.get("/auth/login", authControllers.login);
+router.get("/login", authControllers.login);
 
-router.post("/auth/login", (req, res) => res.send("Este es el Login Enviado"));
+router.post("/login", (req, res) => res.send("Este es el Login Enviado"));
 
-router.get("/auth/register", authControllers.register);
+router.get("/register", authControllers.register);
 
-router.post("/auth/register", (req, res) => res.send("Este es el Register Enviado"));
+router.post("/register", (req, res) => res.send("Este es el Register Enviado"));
 
-router.get("/auth/logout", authControllers.logout);
+router.get("/logout", authControllers.logout);
 
 module.exports = router;

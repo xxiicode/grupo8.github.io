@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
-    <link type="text/css" rel="stylesheet" href="css/register.css">
-</head>
 <body>
-    <!-- Header -->
-    <%- include ('../partials/adminHeader.ejs') %>
-    <!-- End Header -->
-    <main>
+ <main>
         <h1 class="h1-register">crea tu cuenta</h2>
             <h2 class="h2-register">Completa el formulario para ser parte del mundo de los Funkos</h3>
                 <form class="form-register" action="">
@@ -41,8 +30,8 @@
                     </div>
                 </form>
     </main>
-     <!--Footer-->
-    <%- include ('../partials/footer.ejs') %>
-    <!-- End Footer -->
 </body>
-</html>
+<%-contentFor('title')%>
+Register
+<%- contentFor('css') %>
+<link type="text/css" rel="stylesheet" href="css/register.css">

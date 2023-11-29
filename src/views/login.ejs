@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <%- include ('../partials/adminHeader.ejs') %>
+    <!-- End Header -->
+    <main class="container">
+        <h1 class="h1-login">ingresar a mi cuenta</h1>
+        <form class="form-login" action="">
+            <div class="correo">
+                <label for="email">email:</label>
+                <input type="email" id="email" name="email" placeholder="johndoe@correo.com"><br>
+            </div>
+            <div class="contraseña">
+                <label for="password">contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="•••••••••"><br>
+            </div>
+            <div class="registro">
+                <a href="/pages/#"><button class="ingreso">ingresar</button></a>
+                <input type="checkbox" id="recordar" name="recordar">
+                <label for="recordar">recordarme</label>
+            </div>
+        </form>
+        <a class="olvido" href="wip.html">olvidé mi contraseña</a>
+    </main>
+     <!--Footer-->
+    <%- include ('../partials/footer.ejs') %>
+    <!-- End Footer -->
+</body>
+</html>

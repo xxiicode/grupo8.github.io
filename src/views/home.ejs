@@ -1,13 +1,5 @@
 
-<%- contentFor('title') %>
-Home | Funko Shop
 
-<%- contentFor('body') %>
-
-
-    <!-- Header -->
-    <%- include('partials/header') %>
-        <!-- End Header -->
         <section class="hero">
             <article class="cover container">
                 <h3>Nuevos Ingresos(!)</h3>
@@ -112,10 +104,7 @@ Home | Funko Shop
                         icon="ic:twotone-chevron-right"></iconify-icon></button>
             </div>
         </section>
-        <!--fOOTER-->
-        <%- include('partials/footer') %>
-            <!-- end footer -->
-
+       
             <!-- scripts -->
             <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
@@ -136,3 +125,7 @@ Home | Funko Shop
                 }).mount()
             </script>
             <!-- end scripts -->
+
+
+            <%- contentFor('title') %>
+            Home | Funko Shop

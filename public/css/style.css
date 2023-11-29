@@ -266,10 +266,10 @@ html {
     font-family: var(--base-font);
     color: var(--dark-solid);
 }
-
-img {
+/*si comentamos esto las img del admin se ven bien*/
+/* img {
     max-width: 100%;
-}
+} */
 header,
 footer {
     background-color: var(--dark-bg-solid);

@@ -24,21 +24,21 @@
                 <th> </th>
             </tr>
         </thead>
-        <tbody>"
-        <tr>
-            <td id="id__producto">1</td>
-            <td id="código__producto">STW001001</td>
-            <td id="nombre__producto">baby yoda blueball</td>
-            <td id="categoria__producto">star wars</td>
-            <td>
-                <a href="/admin/edit/6"><img src="/assets/img/icons/edit_pencil.svg" alt="Dibujo de lapiz, boton para ir a editar el producto"></a>
-                </a>
-                </td>
-            <td>
-                <a href="/admin/delete/6"><img src="/assets/img/icons/delete_trash.svg" lat="Dibujo de tacho de basura, boton para eliminar el producto">
-                </a>
-            </td>
-        </tr>
+        <tbody>
+            <% productos.forEach(producto => {%>
+                <tr>
+                    <td id="id__producto"><%= producto.id %></td>
+                    <td id="código__producto">NoData</td>
+                    <td id="nombre__producto"><%= producto.nombre %></td>
+                    <td id="categoria__producto">€<%= producto.precio %></td>
+                    <td>
+                        <a href="/admin/edit/6"><img src="/assets/img/icons/edit_pencil.svg" alt="Dibujo de lapiz, boton para ir a editar el producto"></a>
+                        </td>
+                    <td>
+                        <a href="/admin/delete/6"><img src="/assets/img/icons/delete_trash.svg" lat="Dibujo de tacho de basura, boton para eliminar el producto"></a>
+                    </td>
+                </tr>
+            <% }) %>
         </tbody>
     </table>
     <!--End tabla productos-->

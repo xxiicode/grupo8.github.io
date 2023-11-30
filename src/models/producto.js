@@ -1,12 +1,21 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require('./connection')
 
-const Producto = sequelize.define("Producto"{
+const Producto = sequelize.define("Producto",{
     nombre: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
     },
-    precio: 
+    precio: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+    },
 });
+
+(async () => {
+    // await sequelize.sync ({force: true});}  //es para rescribir la tabla, hasta qe este definida.
+    await sequelize.sync ();}
+)()
+
 
 module.exports = Producto;

@@ -2,9 +2,21 @@ const sharp = require("sharp");
 const path = require("path");
 const pcolor = require("picocolors") 
 const { validationResult } = require("express-validator")
+const model = require('../models/producto')
 
 const adminControllers = {
-admin: (req, res) => res.render("admin", {layout: "layouts/adminLayout"}),
+
+admin: async (req, res) => {
+    try{
+        const productos = await model.findAll();
+        /*console.log(productos); */
+        res.render("admin", {productos, layout: "layouts/adminLayout"} );
+    } catch(error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+    
+},
 
 create: (req, res) => res.render("create", {layout: "layouts/adminLayout", values: {}}),
 

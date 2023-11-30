@@ -1,8 +1,9 @@
 //Dependencias -----------llama las dependencias
 const express = require("express");
 const app = express();
-const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi: pcolor.red("hola")
 const fs = require("node:fs");
+require("dotenv").config(); //
+const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi: pcolor.red("hola")
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
@@ -43,13 +44,13 @@ app.use((req, res, next) => {
     res.status(404).render("404",{layout: "layouts/mainLayout"});
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
     try {
         await sequelize.authenticate();
     } catch (error) {console.log(pcolor.red(error));}
 
-    console.log(`http://localhost:${PORT}`)
+    console.log(pcolor.green(`http://localhost:${PORT}`))
 });
 
 

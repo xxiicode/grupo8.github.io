@@ -10,12 +10,12 @@
 
     <div>
         <form   class="form-crear-editar"
-                action="/admin/"
+                action="/admin/create"
                 method="post"
                 enctype="multipart/form-data"
                 >
             <div>
-                <div>
+<!--                 <div>
                     <label for="category">categoría:</label>
                     <select name="category" id="category">
                         <option value="Figuras"> Figuras</option>
@@ -27,44 +27,44 @@
                     <select name="licencia" id="licencia">
                         <option value="Naruto">Naruto</option>
                     </select>
-                </div>
+                </div> -->
             </div>
 
             <div>
                 <label for="product">Nombre del producto: </label>
-                <input type="text" name="product" id="product" value="<%= typeof values != 'undefined' ? values.product : '' %>">
+                <input type="text" name="nombre" id="product" value="<%= typeof values != 'undefined' ? values.nombre : '' %>">
             </div>
 
-            <div>
+<!--             <div>
                 <textarea name="text" placeholder="Descripción del producto" id="text" value="">  <%= values.text || '' %> </textarea>
-            </div>
+            </div> -->
 
             <div>
-                <div>
+<!--                 <div>
                     <label for="sku">SKU:</label>
                     <input type="text" name="sku" placeholder="NAR001012" id="sku">
-                </div>
+                </div> -->
                 <div>
                     <label for="price">Precio:</label>
-                    <input type="text" placeholder="$ 1.799,00" name="price" id="price">
+                    <input type="text" placeholder="$ 1.799,00" name="precio" id="precio">
                 </div>
-                <div>
+<!--                 <div>
                     <label for="stock">Stock:</label>
                     <input type="text" placeholder="10" name="stock" id="stock">
-                </div>
+                </div> -->
             </div>
 
             <div>
-                <label for="descuento">Descuento:</label>
-                <input type="text" placeholder="10%" name="descuento" id="descuento">
-                <div>
+<!--                 <label for="descuento">Descuento:</label>
+                <input type="text" placeholder="10%" name="descuento" id="descuento"> -->
+<!--                 <div>
                     <label for="cuotas">Cuotas:</label>
                     <select type="text" name="cuotas" id="cuotas">
                         <option value="6 sin interes">6 Cuotas sin interés</option>
                         <option value="12 sin interes">12 Cuotas sin interés</option>
 
                     </select>
-                </div>
+                </div> -->
 
             </div>
 
@@ -75,7 +75,8 @@
                     id="imagen"
                     name="imagen"
                     accept="image/*"
-                    required/>
+                    
+                    />
 
                 <button type="file" name="archivos" id="archivos">Elegir archivos</button>
                 <p>No se ha seleccionado ningún archivo</p>

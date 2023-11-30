@@ -8,7 +8,9 @@ const adminControllers = {
 
 admin: async (req, res) => {
     try{
-        const productos = await model.findAll();
+        const productos = await model.findAll({
+            attributes: ["id", "nombre", "precio"],
+        });
         /*console.log(productos); */
         res.render("admin", {productos, layout: "layouts/adminLayout"} );
     } catch(error) {
@@ -20,8 +22,8 @@ admin: async (req, res) => {
 
 create: (req, res) => res.render("create", {layout: "layouts/adminLayout", values: {}}),
 
-store: (req, res) => {
-    console.log(pcolor.cyan('consolelog antes de chekear errores:'),req.body)
+store: async (req, res) => {
+    console.log(pcolor.cyan('consolelog antes de chekear errores:'),req.body);
     const errors = validationResult(req);
         if (!errors.isEmpty()){
             return res.render("create", {
@@ -29,13 +31,23 @@ store: (req, res) => {
                 errors: errors.array(),
             });
         }
-    console.log(req.body, req.file, req.file.buffer, req.file.originalname);
-    sharp(req.file.buffer).resize(500).toFile(path.resolve(__dirname, "../../public/uploads/" + req.file.originalname));  // tmb puede dos datos(500, 500)
-    res.send("Route for admin create post");
+    try {
+        const producto = await model.create(req.body);
+        console.log(producto)
+    } catch (error) {
+        console.log(pcolor.red('error al subir data'), error )
+    }
+    if(req.file) {
+    console.log(req.file);
+    sharp(req.file.buffer)
+        .resize(500)
+        .toFile(path.resolve(__dirname, "../../public/uploads/" + req.file.originalname));  // tmb puede dos datos(500, 500)
+        res.redirect("/admin/");
+    }
 },
 
 edit: (req, res) => res.render("edit", {layout: "layouts/adminLayout"}),
-editPut: (req, res) => res.send("Route for admin edit id put"),
+modify: (req, res) => res.send("Route for admin edit id put"),
 destroy: (req, res) => res.send("Route for admin delete id")
 } 
 

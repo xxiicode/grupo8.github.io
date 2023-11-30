@@ -34,15 +34,17 @@ store: async (req, res) => {
     try {
         const producto = await model.create(req.body);
         console.log(producto)
-    } catch (error) {
-        console.log(pcolor.red('error al subir data'), error )
-    }
-    if(req.file) {
-    console.log(req.file);
-    sharp(req.file.buffer)
-        .resize(500)
-        .toFile(path.resolve(__dirname, "../../public/uploads/" + req.file.originalname));  // tmb puede dos datos(500, 500)
+        if(req.file) {
+            console.log(req.file);
+            sharp(req.file.buffer)
+                .resize(500)
+                .toFile(path.resolve(__dirname, `../../public/uploads/funko_${producto.id}.jpg`));  // tmb puede dos datos(500, 500)
+                
+            }
         res.redirect("/admin/");
+    } catch (error) {
+        console.log(pcolor.red('error al subir data'), error );
+        res.status(500).send(error)
     }
 },
 

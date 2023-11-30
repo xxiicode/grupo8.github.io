@@ -31,12 +31,12 @@
             </div>
 
             <div>
-                <label for="product">Nombre del producto: </label>
+                <label for="nombre">Nombre del producto: </label>
                 <input type="text" name="nombre" id="product" value="<%= typeof values != 'undefined' ? values.nombre : '' %>">
             </div>
 
 <!--             <div>
-                <textarea name="text" placeholder="Descripción del producto" id="text" value="">  <%= values.text || '' %> </textarea>
+                <textarea name="text" placeholder="Descripción del producto" id="text" value=""><%= values.text || '' %></textarea>
             </div> -->
 
             <div>
@@ -45,7 +45,7 @@
                     <input type="text" name="sku" placeholder="NAR001012" id="sku">
                 </div> -->
                 <div>
-                    <label for="price">Precio:</label>
+                    <label for="precio">Precio:</label>
                     <input type="text" placeholder="$ 1.799,00" name="precio" id="precio">
                 </div>
 <!--                 <div>

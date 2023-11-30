@@ -5,7 +5,7 @@ const multer = require('multer'); // para usar multer
 const upload = multer({storage: multer.memoryStorage() }); // mas multer
 const { body } = require('express-validator'); // para validar los campos del formulario
 const validations = [
-    body("product")
+    body("nombre")
         .not()
         .isEmpty()
         .withMessage("El nombre es obligatorio!")

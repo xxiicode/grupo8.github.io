@@ -32,11 +32,17 @@
                     <td id="nombre__producto"><%= producto.nombre %></td>
                     <td id="categoria__producto">€<%= producto.precio %></td>
                     <td>
-                        <a href="/admin/edit/6"><img src="/assets/img/icons/edit_pencil.svg" alt="Dibujo de lapiz, boton para ir a editar el producto"></a>
+                        <a href="/admin/edit/<%= producto.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el producto"></a>
                         </td>
                     <td>
-                        <a href="/admin/delete/6"><img src="/assets/img/icons/delete_trash.svg" lat="Dibujo de tacho de basura, boton para eliminar el producto"></a>
-                    </td>
+                        <form
+                        class="form-delete"
+                        style="display: inline-block;"
+                        action="admin/delete/<%= producto.id %>?_method=DELETE"
+                        method="post">
+                            <button type="submit"><img src="/assets/img/icons/delete_trash.svg" alt="eliminar el producto"></button>                    
+                        </form>                    
+                    </td>                
                 </tr>
             <% }) %>
         </tbody>

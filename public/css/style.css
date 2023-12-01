@@ -934,6 +934,11 @@ footer {
     width: 175px;
 }
 
+.form-delete button[type="submit"] {
+border: none;
+background: none;
+}
+
 
 div.mini-imgs article {
     display: flex;

@@ -59,24 +59,7 @@ app.listen(PORT, async() => {
 
 
 
-// Ejemplo del forulario clase 27--- /////////////////////////No anda por que esta despues del puntoLISTEN /////////////////
-// esto es para mandar datos desde el formulario de contacto
-app.post('/contacto', (req, res) => {
-    console.log(req.body);
-    res.send("Formulario recibido");
-});
 
-// vamos a llamar la ruta del archivo json
-app.get('/personajes', (req, res) => {
-    const json = fs.readFileSync(__dirname + '/characters.json');
-    res.json(JSON.parse(json));
-    //res.send(JSON.parse(json));
-});
-
-// esto crea una ruta para acceder a la carpeta public, en este caso a main.css, sin usar el punto html
-app.get('/css', (req, res) => { // test para mostrar rutas dentro de public sin el ' .html'
-    res.sendFile(__dirname + '/public/css/main.css')
-});
 
 
 
@@ -93,12 +76,21 @@ const { shop } = require("./src/controllers/shopControllers");
 console.log(pcolor.blue(test)); // imprime en consola lo que esta en test.js y no tiene su propio console log.
 
 
-/* // crea la ruta contacto, no es lo mismo que contacto.html
-app.get('/contacto2', (req, res) => {
-    res.send("Soy el contacto que no existe");
+// Ejemplo del forulario clase 27--- /////////////////////////No anda por que esta despues del puntoLISTEN /////////////////
+// esto es para mandar datos desde el formulario de contacto
+/* app.post('/contacto', (req, res) => {
+    console.log(req.body);
+    res.send("Formulario recibido");
+}); */
+
+// vamos a llamar la ruta del archivo json
+app.get('/personajes', (req, res) => {
+    const json = fs.readFileSync(__dirname + '/characters.json');
+    res.json(JSON.parse(json));
+    //res.send(JSON.parse(json));
 });
 
-// crea la ruta nosotros.
-app.get('/nosotros', (req, res) => { // es para mostrar contenido fuera del publico, dandole ruta 'nosotros'
-res.sendFile(__dirname + '/nosotros.html')
-}); */
+// esto crea una ruta para acceder a la carpeta public, en este caso a main.css, sin usar el punto html
+app.get('/css', (req, res) => { // test para mostrar rutas dentro de public sin el ' .html'
+    res.sendFile(__dirname + '/public/css/main.css')
+});

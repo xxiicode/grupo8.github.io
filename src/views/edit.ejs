@@ -1,84 +1,106 @@
-    <main class="container edit">
-        <h1> Editor de items</h1>
-        <div>
-            <form class="form-crear-editar" action="">
-                <div>
-                    <div>
-                        <label for="category">categoría:</label>
-                        <select name="" id="category">
-                            <option value=""> Figuras</option>
-                            <option value=""> otro</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="licencia">Licencia:</label>
-                        <select name="" id="licencia">
-                            <option value=""> Naruto Shippuden</option>
-                        </select>
-                    </div>
-                </div>
+<main class="create container">
+    <h1> Crear nuevo item</h1>
+<% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li> <%= error.msg %></li>
+        <% }) %>
+  </ul>  
+<%} %>
 
-                <div>
-                    <label for="product">Nombre del producto: </label>
-                    <input type="text" placeholder="Kakashi Hatake Shippuden Saga " id="product">
-                    Kakashi Hatake Shippuden Saga
-                </div>
-
-                <div>
-                    <textarea name="" placeholder="Descripción del producto" id="text">Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.
-                    </textarea>
-                </div>
-
-                <div>
-                    <div>
-                        <label for="sku">SKU:</label>
-                        <input type="text" placeholder="NAR001012" id="sku">
-                    </div>
-                    <div>
-                        <label for="price">Precio:</label>
-                        <input type="text" placeholder="$ 1.799,00" id="price">
-                    </div>
-                    <div>
-                        <label for="stock">Stock:</label>
-                        <input type="text" placeholder="10" id="stock">
-                    </div>
-                </div>
-
-                <div>
-                    <label for="descuento">Descuento:</label>
-                    <input type="text" placeholder="10%" id="descuento">
-                    <div>
-                        <label for="cuotas">Cuotas:</label>
-                    <select type="text" id="cuotas">
-                        <option value="">6 Cuotas sin interés</option>
+    <div>
+        <form   class="form-crear-editar"
+                action="/admin/edit/<%= values.id %>?_method=PUT"
+                method="post"
+                enctype="multipart/form-data"
+                >
+            <div>
+<!--                 <div>
+                    <label for="category">categoría:</label>
+                    <select name="category" id="category">
+                        <option value="Figuras"> Figuras</option>
+                        <option value="otro"> otro</option>
                     </select>
-                    </div>
+                </div>
+                <div>
+                    <label for="licencia">Licencia:</label>
+                    <select name="licencia" id="licencia">
+                        <option value="Naruto">Naruto</option>
+                    </select>
+                </div> -->
+            </div>
+
+            <div>
+                <label for="nombre">Nombre del producto: </label>
+                <input
+                    type="text"
+                    name="nombre"
+                    id="product"
+                    value="<%= typeof values != 'undefined' ? values.nombre : '' %>">
+            </div>
+
+<!--             <div>
+                <textarea name="text" placeholder="Descripción del producto" id="text" value=""><%= values.text || '' %></textarea>
+            </div> -->
+
+            <div>
+<!--                 <div>
+                    <label for="sku">SKU:</label>
+                    <input type="text" name="sku" placeholder="NAR001012" id="sku">
+                </div> -->
+                <div>
+                    <label for="precio">Precio:</label>
+                    <input 
+                        type="text"
+                        placeholder="$ 1.799,00"
+                        name="precio"
+                        id="precio" 
+                        value="<%= typeof values != 'undefined' ? values.precio : '' %>">
+                </div>
+<!--                 <div>
+                    <label for="stock">Stock:</label>
+                    <input type="text" placeholder="10" name="stock" id="stock">
+                </div> -->
+            </div>
+
+            <div>
+<!--                 <label for="descuento">Descuento:</label>
+                <input type="text" placeholder="10%" name="descuento" id="descuento"> -->
+<!--                 <div>
+                    <label for="cuotas">Cuotas:</label>
+                    <select type="text" name="cuotas" id="cuotas">
+                        <option value="6 sin interes">6 Cuotas sin interés</option>
+                        <option value="12 sin interes">12 Cuotas sin interés</option>
+
+                    </select>
+                </div> -->
+
+            </div>
+
+            <div>
+                <label for="imagen">Imágenes:</label>
+                <input
+                    type="file"
+                    id="imagen"
+                    name="imagen"
+                    accept="image/*"
                     
-                </div>
+                    />
 
-                <div>
-                    <label for="">Imágenes:</label>
-                    <button type="file" name="archivos" id="archivos">Elegir archivos</button>
-                    <p>No se ha seleccionado ningún archivo</p>
-                </div>
-                <div class="mini-imgs">
-                    <article>
-                        <img src="/assets/img/naruto/kakashi_hatake_front.svg" alt="#">
-                        <span>Frente</span>
-                    </article>
-                    <article>
-                        <img src="/assets/img/naruto/kakashi_hatake_back.svg" alt="#">
-                        <span>Dorso</span>
-                    </article>
-                </div>
-                <div>
-                    <button type="submit">Modificar productos</button>
-                </div>
-            </form>
-        </div>
+                <button type="file" name="archivos" id="archivos">Elegir archivos</button>
+                <p>No se ha seleccionado ningún archivo</p>
+            </div>
+            <div>
+                <button type="submit">Agregar producto</button>
+                <button type="reset">Limpiar</button>
+            </div>
+        </form>
+    </div>
 
-    </main>
+</main>
 
-    <%- contentFor('title') %>
-    Edit!
-    <%- contentFor('extracss') %>
+<%- contentFor('title') %>
+    Create!
+    <%- contentFor("extracss") %>
+        <link rel="stylesheet" href="/css/create.css">
+        <!--enctype="multipart/form-data"-->

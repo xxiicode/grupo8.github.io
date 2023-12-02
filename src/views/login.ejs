@@ -1,21 +1,37 @@
     <main class="container">
         <h1 class="h1-login">ingresar a mi cuenta</h1>
-        <form class="form-login" action="">
+        <form
+            class="form-login"
+             action="login"
+             method="post">
             <div class="correo">
                 <label for="email">email:</label>
-                <input type="email" id="email" name="email" placeholder="johndoe@correo.com"><br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email" 
+                    placeholder="juan@sintierra.com"
+                    value="<%= typeof values != 'undefined' ? values.email : '' %>">
+                    <br>
             </div>
             <div class="contraseña">
                 <label for="password">contraseña:</label>
                 <input type="password" id="password" name="password" placeholder="•••••••••"><br>
             </div>
             <div class="registro">
-                <a href="/admin"><button class="ingreso">ingresar</button></a>
-                <input type="checkbox" id="recordar" name="recordar">
-                <label for="recordar">recordarme</label>
+                <button type="submit" class="ingreso">ingresar</button>
             </div>
         </form>
         <a class="olvido" href="wip">olvidé mi contraseña</a>
+        <% if (typeof errors !='undefined' ) { %>
+            <ul>
+                <% errors.forEach(error=> { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <%} %>
     </main>
 
     <%- contentFor('title') %>

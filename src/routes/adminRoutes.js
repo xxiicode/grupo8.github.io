@@ -18,11 +18,13 @@ const validations = [
 
 router.get ('/', adminControllers.admin);
 /* router.get ("/:id", adminController.show); */
+
 router.get ('/create', adminControllers.create);
-/* router.post ('/create', adminControllers.createPost); */
 router.post ('/create', upload.single("imagen"), validations, adminControllers.store);
+
 router.get ('/edit/:id', adminControllers.edit);
 router.put ('/edit/:id', upload.single("imagen"), validations, adminControllers.update);
+
 router.delete ('/delete/:id', adminControllers.destroy);
 
 

@@ -14,8 +14,8 @@ const Producto = sequelize.define("Producto",{
 
 (async () => {
  // await sequelize.sync ({force: true});}  //es para rescribir la tabla, hasta qe este definida.
-  await sequelize.sync({alter: true});}
-  //  await sequelize.sync();}
+  //await sequelize.sync({alter: true});}
+    await sequelize.sync();}
 )()
 
 

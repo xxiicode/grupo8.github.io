@@ -1,35 +1,46 @@
-    <main>
-        <h1 class="h1-register">crea tu cuenta</h2>
-            <h2 class="h2-register">Completa el formulario para ser parte del mundo de los Funkos</h3>
-                <form class="form-register" action="">
-                    <div class="nom-register">
+<main>
+    <h1 class="h1-register">crea tu cuenta</h1>
+    <h2 class="h2-register">Completa el formulario para ser parte del mundo de los Funkos</h2>
+    <form class="form-register" action="register" method="post">
+
+        <!--                     <div class="nom-register">
                         <label for="nombre">nombre:</label>
                         <input type="text" id="nombre" name="nombre" placeholder="John">
-                    </div>
-                    <div class="ape-register">
+                    </div> -->
+        <!--                     <div class="ape-register">
                         <label for="apellido">apellido:</label>
                         <input type="text" id="apellido" name="apellido" placeholder="Doe">
-                    </div>
-                    <div class="cor-register">
-                        <label for="email">email:</label>
-                        <input type="email" id="email" name="email" placeholder="johndoe@correo.com">
-                    </div>
-                    <div class="cla-register">
-                        <label for="password">contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="•••••••••">
-                    </div>
-                    <div class="rep-register">
-                        <label for="rpassword">repita contraseña:</label>
-                        <input type="password" id="rpassword" name="rpassword" placeholder="•••••••••">
-                    </div>
-                    <div class="terminar-registro">
-                        <a href="/admin"><button class="btn-registro">registrar</button></a>
-                        <input type="checkbox" id="recordar" name="recordar">
-                        <label for="recordar">acepto<a class="acepto" href="wip">Términos y Condiciones</a></label>
-                    </div>
-                </form>
-    </main>
+                    </div> -->
+        <div class="cor-register">
+            <label for="email">email:</label>
+            <input type="email" id="email" name="email" placeholder="johndoe@correo.com"
+                value="<%= typeof values != 'undefined' ? values.email : '' %>">
+        </div>
+        <div class="cla-register">
+            <label for="password">contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="•••••••••">
+        </div>
+        <div class="rep-register">
+            <label for="rpassword">repita contraseña:</label>
+            <input type="password" id="rpassword" name="rpassword" placeholder="•••••••••">
+        </div>
+        <% if (typeof errors !='undefined' ) { %>
+            <ul>
+                <% errors.forEach(error=> { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <%} %>
+                <div class="terminar-registro">
+                    <button type="submit" class="btn-registro">registrar</button>
+                    <!--                    <input type="checkbox" id="recordar" name="recordar">
+                        <label for="recordar">acepto<a class="acepto" href="wip">Términos y Condiciones</a></label> -->
+                </div>
+    </form>
+</main>
 <%- contentFor('title') %>
-Register!
-<%- contentFor('extracss') %>
-<link rel="stylesheet" href="/css/register.css">
+    Register!
+    <%- contentFor('extracss') %>
+        <link rel="stylesheet" href="/css/register.css">

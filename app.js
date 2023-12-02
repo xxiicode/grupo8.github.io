@@ -12,7 +12,8 @@ const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
 const expressLayouts = require('express-ejs-layouts'); // para usar layouts de ejs
 const sequelize = require("./src/models/connection") //para conectar a la base de datos
-
+//const session = require("express-session")
+const session = require("cookie-session");
 
 // EJS
 app.set("view engine", "ejs"); // esto es para que funcione ejs
@@ -23,6 +24,28 @@ app.set("views", path.join(__dirname, "./src/views"));
 app.use(expressLayouts); // para usar layouts de ejs, va luego del "view engine"
 app.set("layout", "layouts/mainLayout"); // este seria el layout por defecto
 
+// credenciales session
+/*
+app.use( // para express.session
+    session({
+        secret:"s3cr3t01", // mejor usar un hash real
+        resave: false,
+        saveUninitialized: false,
+    })
+); */
+app.use( // para cookie.session
+    session({
+      keys: ["S3cr3t01", "S3cr3t02"],
+    })
+  );
+
+const isLogin= (req, res, next) => {
+    if (!req.session.userId) {
+        return res.redirect("auth/login");
+    }
+    next();
+};
+
 
 //Middleware -------------- Usa el middleware de express para poder usar archivos estaticos en public
 app.use(express.static(path.join(__dirname,"public")));
@@ -31,9 +54,8 @@ app.use(express.urlencoded({ extended: false })); // esto es para que funcione l
 // app.use(express.json());  para las peticiones json
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
-app.use('/admin', adminRoutes);
+app.use('/admin', isLogin, adminRoutes);
 app.use('/auth', authRoutes);
-
 
 
 // Listen (va al final)

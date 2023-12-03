@@ -1,0 +1,80 @@
+<main class="create container">
+    <h1> Crear nueva categoria</h1>
+<% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li> <%= error.msg %></li>
+        <% }) %>
+  </ul>  
+<%} %>
+
+    <div>
+        <form   class="form-crear-editar"
+                action="create"
+                method="post"
+                >
+            <div>
+<!--                 <div>
+                    <label for="category">categoría:</label>
+                    <select name="category" id="category">
+                        <option value="Figuras"> Figuras</option>
+                        <option value="otro"> otro</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="licencia">Licencia:</label>
+                    <select name="licencia" id="licencia">
+                        <option value="Naruto">Naruto</option>
+                    </select>
+                </div> -->
+            </div>
+
+            <div>
+                <label for="nombre">Nombre de la categoria: </label>
+                <input type="text" name="nombre" id="product" value="<%= typeof values != 'undefined' ? values.nombre : '' %>">
+            </div>
+
+<!--             <div>
+                <textarea name="text" placeholder="Descripción del categoria" id="text" value=""><%= values.text || '' %></textarea>
+            </div> -->
+
+            <div>
+<!--                 <div>
+                    <label for="sku">SKU:</label>
+                    <input type="text" name="sku" placeholder="NAR001012" id="sku">
+                </div> -->
+
+<!--                 <div>
+                    <label for="stock">Stock:</label>
+                    <input type="text" placeholder="10" name="stock" id="stock">
+                </div> -->
+            </div>
+
+            <div>
+<!--                 <label for="descuento">Descuento:</label>
+                <input type="text" placeholder="10%" name="descuento" id="descuento"> -->
+<!--                 <div>
+                    <label for="cuotas">Cuotas:</label>
+                    <select type="text" name="cuotas" id="cuotas">
+                        <option value="6 sin interes">6 Cuotas sin interés</option>
+                        <option value="12 sin interes">12 Cuotas sin interés</option>
+
+                    </select>
+                </div> -->
+
+            </div>
+
+            <div>
+                <button type="submit">Agregar categoria</button>
+                <button type="reset">Limpiar</button>
+            </div>
+        </form>
+    </div>
+
+</main>
+
+<%- contentFor('title') %>
+    Create!
+    <%- contentFor("extracss") %>
+        <link rel="stylesheet" href="/css/create.css">
+        <!--enctype="multipart/form-data"-->

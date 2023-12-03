@@ -2,15 +2,13 @@ const pcolor = require("picocolors")
 const { validationResult } = require("express-validator")
 const model = require('../models/category')
 
-const adminControllers = {
+const categoryControllers = {
 
-    admin: async (req, res) => {
+    category: async (req, res) => {
         try {
-            const categorias = await model.findAll({
-                attributes: ["id", "nombre", "precio"],
-            });
-            /*console.log(categorias); */
-            res.render("admin", { categorias, layout: "layouts/adminLayout" });
+            const categoria = await model.findAll();
+            /*console.log(categoria); */
+            res.render("category", { categoria, layout: "layouts/adminLayout", values: {} });
         } catch (error) {
             console.log(error);
             res.status(500).send(error)
@@ -18,13 +16,14 @@ const adminControllers = {
 
     },
 
-    create: (req, res) => res.render("create", { layout: "layouts/adminLayout", values: {} }),
+    createCategory: (req, res) => res.render("createCategory", { layout: "layouts/adminLayout", values: {} }),
 
     store: async (req, res) => {
 /*         console.log(pcolor.cyan('consolelog antes de chekear errores:'), req.body); */
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render("create", {
+            return res.render("createCategory", {
+                layout: "layouts/adminLayout",
                 values: req.body,
                 errors: errors.array(),
             });
@@ -32,11 +31,12 @@ const adminControllers = {
         try {
             const producto = await model.create(req.body);
             console.log(producto)
-            res.redirect("/admin/");
+            res.redirect("/admin/category");
         } catch (error) {
             if (error.name === 'SequelizeUniqueConstraintError') {
                 // Manejar el error de unicidad (producto duplicado) aquí
-                res.render("create", {
+                res.render("createCategory", {
+                    layout: "layout/adminLayout",
                     values: req.body,
                     errors: [{ msg: "El producto con ese nombre ya existe." }],
                 });
@@ -46,11 +46,11 @@ const adminControllers = {
         }
     }},
 
-    edit: async (req, res) => {
+    editCategory: async (req, res) => {
         try {
             const producto = await model.findByPk(req.params.id);
             if (producto) {
-                res.render("edit", { values: producto, layout: "layouts/adminLayout" });
+                res.render("editCategory", { values: producto, layout: "layouts/adminLayout" });
             } else {
                 res.status(404).send("el producto no existe")
             }
@@ -63,7 +63,8 @@ const adminControllers = {
     update: async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render("create", {
+            return res.render("editCategory", {
+                layout: "layouts/adminLayout",
                 values: req.body,
                 errors: errors.array(),
             });
@@ -74,7 +75,7 @@ const adminControllers = {
                     id: req.params.id,
                 },
             });
-            res.redirect("/admin")
+            res.redirect("/admin/category")
         } catch(error) {
             console.log(error);
             res.send(error);
@@ -90,7 +91,7 @@ const adminControllers = {
                 }
             });
             console.log(destroyed);
-            res.redirect("/admin")
+            res.redirect("/admin/category")
         } catch (error) {
             console.log(error);
             res.send(error);
@@ -100,4 +101,4 @@ const adminControllers = {
 
 }
 
-module.exports = adminControllers;
+module.exports = categoryControllers;

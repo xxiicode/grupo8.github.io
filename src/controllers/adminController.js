@@ -73,7 +73,8 @@ const adminControllers = {
     update: async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render("create", {
+            return res.render("edit", {
+                layout: "layouts/adminlayout",
                 values: req.body,
                 errors: errors.array(),
             });
@@ -85,7 +86,7 @@ const adminControllers = {
                 },
             });
             res.redirect("/admin")
-        } catch {
+        } catch(error) {
             console.log(error);
             res.send(error);
         }

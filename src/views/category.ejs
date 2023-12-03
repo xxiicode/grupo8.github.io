@@ -8,50 +8,49 @@
     <!--End searchbar-->
 
     <section class="listado">
-        <h1 class="h1-adm">listado de productos</h1>
-        <a class="agregar-adm" href="/admin/create">agregar<img id="img_suma" src="/assets/img/icons/signo-mas-round.svg"
+        <h1 class="h1-adm">listado de categorias</h1>
+        <a class="agregar-adm" href="/admin/category/create">agregar<img id="img_suma" src="/assets/img/icons/signo-mas-round.svg"
             alt="signo de suma"></a>
     </section>
-    <!--tabla de productos-->
+    <!--tabla de categorias-->
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Código</th>
-                <th>Nombre del producto</th>
-                <th><a style="color:blueviolet" href="/admin/category" title="crear categoria!!" onmouseover="this.style.color='red'" onmouseout="this.style.color='blueviolet'">Categoría</a></th>
+                <th>Nombre de categoria</th>
+                <th>Categoría</th>
                 <th> </th>
                 <th> </th>
             </tr>
         </thead>
         <tbody>
-            <% productos.forEach(producto => {%>
+            <% categoria.forEach(categoria => {%>
                 <tr>
-                    <td id="id__producto"><%= producto.id %></td>
+                    <td id="id__producto"><%= categoria.id %></td>
                     <td id="código__producto">NoData</td>
-                    <td id="nombre__producto"><%= producto.nombre %></td>
-                    <td id="categoria__producto">€<%= producto.precio %></td>
+                    <td id="nombre__producto"><%= categoria.nombre %></td>
                     <td>
-                        <a href="/admin/edit/<%= producto.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el producto"></a>
+                        <a href="/admin/category/edit/<%= categoria.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el categoria"></a>
                         </td>
                     <td>
                         <form
                         class="form-delete"
                         style="display: inline-block;"
-                        action="admin/delete/<%= producto.id %>?_method=DELETE"
+                        action="category/delete/<%= categoria.id %>?_method=DELETE"
                         method="post">
-                            <button type="submit"><img src="/assets/img/icons/delete_trash.svg" alt="eliminar el producto"></button>                    
+                            <button type="submit"><img src="/assets/img/icons/delete_trash.svg" alt="eliminar el categoria"></button>                    
                         </form>                    
                     </td>                
                 </tr>
             <% }) %>
         </tbody>
     </table>
-    <!--End tabla productos-->
+    <!--End tabla categorias-->
 </div>
 </main>
 
 <%- contentFor('title') %>
-admin!
+categorias!
 <%- contentFor('extracss') %>
 <link type="text/css" rel="stylesheet" href="/css/admin.css">

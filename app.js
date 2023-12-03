@@ -7,6 +7,7 @@ const pcolor = require("picocolors"); // para usar pcolor hay que declaralo asi:
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
+const categoryRoutes = require('./src/routes/categoryRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 const methodOverride = require('method-override');
 const path = require('node:path'); //llama el modulo nativo de node llamado path, que es para trabajar con rutas de archivos
@@ -57,7 +58,7 @@ app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
 app.use('/admin', isLogin, adminRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/admin/category', isLogin, categoryRoutes);
 
 // Listen (va al final)
 app.use((req, res, next) => {

@@ -25,14 +25,15 @@ app.use(expressLayouts); // para usar layouts de ejs, va luego del "view engine"
 app.set("layout", "layouts/mainLayout"); // este seria el layout por defecto
 
 // credenciales session
-/*
-app.use( // para express.session
+
+/*app.use( // para express.session
     session({
         secret:"s3cr3t01", // mejor usar un hash real
         resave: false,
         saveUninitialized: false,
     })
 ); */
+
 app.use( // para cookie.session
     session({
       keys: ["S3cr3t01", "S3cr3t02"],
@@ -59,9 +60,6 @@ app.use('/auth', authRoutes);
 
 
 // Listen (va al final)
-/* app.use((req, res, next) => {
-    res.status(404).send('Error404: Gracias, vuelvas prontos');
-}); */
 app.use((req, res, next) => {
     res.status(404).render("404",{layout: "layouts/mainLayout"});
 });
@@ -69,7 +67,9 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
     try {
-        await sequelize.authenticate();
+        await sequelize.authenticate(); //chekea que conecte
+        await sequelize.sync(); //sincroniza todo
+        //await sequelize.sync({ force: true });
     } catch (error) {console.log(pcolor.red(error));}
 
     console.log(pcolor.green(`http://localhost:${PORT}`))

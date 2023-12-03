@@ -12,7 +12,6 @@ const validations = [
         .bail()
         .isLength({min: 5})
         .withMessage("tiene que tener 5 caracteres minimo!")
-        .escape(),
 ];
 
 

@@ -46,7 +46,7 @@
                 </div> -->
                 <div>
                     <label for="precio">Precio:</label>
-                    <input type="text" placeholder="$ 1.799,00" name="precio" id="precio">
+                    <input type="text" placeholder="$ 1.799,00" name="precio" id="precio" value="<%= typeof values != 'undefined' ? values.precio : '' %>">
                 </div>
 <!--                 <div>
                     <label for="stock">Stock:</label>

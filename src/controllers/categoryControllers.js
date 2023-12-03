@@ -1,19 +1,16 @@
-const sharp = require("sharp");
-const path = require("path");
 const pcolor = require("picocolors")
 const { validationResult } = require("express-validator")
-const model = require('../models/product')
-const fs = require("fs")
+const model = require('../models/category')
 
 const adminControllers = {
 
     admin: async (req, res) => {
         try {
-            const productos = await model.findAll({
+            const categorias = await model.findAll({
                 attributes: ["id", "nombre", "precio"],
             });
-            /*console.log(productos); */
-            res.render("admin", { productos, layout: "layouts/adminLayout" });
+            /*console.log(categorias); */
+            res.render("admin", { categorias, layout: "layouts/adminLayout" });
         } catch (error) {
             console.log(error);
             res.status(500).send(error)
@@ -35,13 +32,6 @@ const adminControllers = {
         try {
             const producto = await model.create(req.body);
             console.log(producto)
-            if (req.file) {
-                console.log(req.file);
-                sharp(req.file.buffer)
-                    .resize(500)
-                    .toFile(path.resolve(__dirname, `../../public/uploads/funko_${producto.id}.jpg`));  // tmb puede dos datos(500, 500)
-
-            }
             res.redirect("/admin/");
         } catch (error) {
             if (error.name === 'SequelizeUniqueConstraintError') {
@@ -85,7 +75,7 @@ const adminControllers = {
                 },
             });
             res.redirect("/admin")
-        } catch {
+        } catch(error) {
             console.log(error);
             res.send(error);
         }
@@ -100,17 +90,6 @@ const adminControllers = {
                 }
             });
             console.log(destroyed);
-            if (destroyed == 1) {
-                fs.unlink(
-                    path.resolve(
-                        __dirname, `../../public/uploads/funko_${req.params.id}.jpg`
-                    ), (error) => {
-                        if (error) {
-                            console.log(error);
-                        }
-                    }
-                );
-            }
             res.redirect("/admin")
         } catch (error) {
             console.log(error);

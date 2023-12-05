@@ -15,19 +15,21 @@
                 enctype="multipart/form-data"
                 >
             <div>
-<!--                 <div>
-                    <label for="category">categoría:</label>
-                    <select name="category" id="category">
-                        <option value="Figuras"> Figuras</option>
-                        <option value="otro"> otro</option>
-                    </select>
+                 <div>
+                    <label for="CategoryId">categoría:</label>
+                    <select name="CategoryId" id="CategoryId">
+                        <option value=""></option>
+                    <% categorias.forEach(categoria => { %>
+                        <option value= "<%= categoria.id %>"> <%= categoria.nombre %> </option>
+                        <% }) %>
+                </select>
                 </div>
                 <div>
                     <label for="licencia">Licencia:</label>
                     <select name="licencia" id="licencia">
                         <option value="Naruto">Naruto</option>
                     </select>
-                </div> -->
+                </div> 
             </div>
 
             <div>

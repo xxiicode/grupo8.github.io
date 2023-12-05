@@ -1,4 +1,4 @@
-const {dataTypes, DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require("./connection");
 const bcryptjs = require("bcryptjs")
 

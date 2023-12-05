@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <% categoria.forEach(categoria => {%>
+            <% categorias.forEach(categoria => {%>
                 <tr>
                     <td id="id__producto"><%= categoria.id %></td>
                     <td id="código__producto">NoData</td>
@@ -49,6 +49,17 @@
     <!--End tabla categorias-->
 </div>
 </main>
+<script>
+    document.addEventListener("submit", (event) => {
+        
+        if (event.target.classList.contains('form-delete')) {
+            event.preventDefault();
+            if (confirm("Seguro de borrar?")) {
+                event.target.submit();
+            }
+        }
+    });
+</script>
 
 <%- contentFor('title') %>
 categorias!

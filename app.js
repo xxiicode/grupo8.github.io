@@ -61,16 +61,17 @@ app.use('/auth', authRoutes);
 app.use('/admin/category', isLogin, categoryRoutes);
 
 // Listen (va al final)
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     res.status(404).render("404",{layout: "layouts/mainLayout"});
-});
+}); */
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
     try {
         await sequelize.authenticate(); //chekea que conecte
-        await sequelize.sync(); //sincroniza todo
-        //await sequelize.sync({ force: true });
+        //await sequelize.sync(); //sincroniza todo
+        await sequelize.sync({ alter: true }); // actualiza sin borrar lo viejo
+        //await sequelize.sync({ force: true }); //te borra toda la data
     } catch (error) {console.log(pcolor.red(error));}
 
     console.log(pcolor.green(`http://localhost:${PORT}`))

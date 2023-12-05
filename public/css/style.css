@@ -850,7 +850,9 @@ footer {
     gap: var(--spacing-36);
     max-width: 827.63px;
 }
-
+td{
+    min-width: 75px;
+}
 .create h1,
 .edit h1 {
     font-size: 42px;

@@ -11,7 +11,16 @@ const validations = [
         .withMessage("El nombre es obligatorio!")
         .bail()
         .isLength({min: 5})
-        .withMessage("tiene que tener 5 caracteres minimo!")
+        .withMessage("tiene que tener 5 caracteres minimo!"),
+    body("precio")
+        .not()
+        .isEmpty()
+        .withMessage("El precio es obligatorio"),
+    body("CategoryId")
+        .not()
+        .isEmpty()
+        .withMessage("La categoria es obligatoria")
+        
 ];
 
 

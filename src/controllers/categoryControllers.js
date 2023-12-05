@@ -6,9 +6,9 @@ const categoryControllers = {
 
     category: async (req, res) => {
         try {
-            const categoria = await model.findAll();
+            const categorias = await model.findAll();
             /*console.log(categoria); */
-            res.render("category", { categoria, layout: "layouts/adminLayout", values: {} });
+            res.render("category", { categorias, layout: "layouts/adminLayout", values: {} });
         } catch (error) {
             console.log(error);
             res.status(500).send(error)
@@ -19,7 +19,7 @@ const categoryControllers = {
     createCategory: (req, res) => res.render("createCategory", { layout: "layouts/adminLayout", values: {} }),
 
     store: async (req, res) => {
-/*         console.log(pcolor.cyan('consolelog antes de chekear errores:'), req.body); */
+        /*         console.log(pcolor.cyan('consolelog antes de chekear errores:'), req.body); */
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.render("createCategory", {
@@ -36,15 +36,16 @@ const categoryControllers = {
             if (error.name === 'SequelizeUniqueConstraintError') {
                 // Manejar el error de unicidad (producto duplicado) aquí
                 res.render("createCategory", {
-                    layout: "layout/adminLayout",
+                    layout: "layouts/adminLayout",
                     values: req.body,
-                    errors: [{ msg: "El producto con ese nombre ya existe." }],
+                    errors: [{ msg: "Una categoria con ese nombre ya existe!!" }],
                 });
             } else {
-            console.log(pcolor.red('error al subir data'), error);
-            res.status(500).send(error)
+                console.log(pcolor.red('error al subir data'), error);
+                res.status(500).send(error)
+            }
         }
-    }},
+    },
 
     editCategory: async (req, res) => {
         try {
@@ -65,7 +66,7 @@ const categoryControllers = {
         if (!errors.isEmpty()) {
             return res.render("editCategory", {
                 layout: "layouts/adminLayout",
-                values: req.body,
+                values: { ...req.params, ...req.body }, categorias,
                 errors: errors.array(),
             });
         }
@@ -74,11 +75,21 @@ const categoryControllers = {
                 where: {
                     id: req.params.id,
                 },
+                returning: true,
             });
-            res.redirect("/admin/category")
-        } catch(error) {
-            console.log(error);
-            res.send(error);
+            res.redirect("/admin/category");
+        } catch (error) {
+            if (error.name === 'SequelizeUniqueConstraintError') {
+                // Manejar el error de unicidad (producto duplicado) aquí
+                res.render("editCategory", {
+                    layout: "layouts/adminLayout",
+                    values: { ...req.params, ...req.body }, categorias,
+                    errors: [{ msg: "Una categoria con ese nombre ya existe!!" }],
+                });
+            } else {
+                console.log(error);
+                res.send(error);
+            }
         }
     },
 

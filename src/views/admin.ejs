@@ -19,6 +19,7 @@
                 <th>ID</th>
                 <th>Código</th>
                 <th>Nombre del producto</th>
+                <th>Precio </th>
                 <th><a style="color:blueviolet" href="/admin/category" title="crear categoria!!" onmouseover="this.style.color='red'" onmouseout="this.style.color='blueviolet'">Categoría</a></th>
                 <th> </th>
                 <th> </th>
@@ -31,9 +32,8 @@
                     <td id="código__producto">NoData</td>
                     <td id="nombre__producto"><%= producto.nombre %></td>
                     <td id="categoria__producto">€<%= producto.precio %></td>
-                    <td>
-                        <a href="/admin/edit/<%= producto.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el producto"></a>
-                        </td>
+                    <td><%= producto.Category.nombre %></td>
+                    <td><a href="/admin/edit/<%= producto.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el producto"></a></td>
                     <td>
                         <form
                         class="form-delete"
@@ -50,6 +50,17 @@
     <!--End tabla productos-->
 </div>
 </main>
+<script>
+    document.addEventListener("submit", (event) => {
+        
+        if (event.target.classList.contains('form-delete')) {
+            event.preventDefault();
+            if (confirm("Seguro de borrar?")) {
+                event.target.submit();
+            }
+        }
+    });
+</script>
 
 <%- contentFor('title') %>
 admin!

@@ -1,0 +1,90 @@
+<main class="create container">
+    <h1> Crear nuevo item</h1>
+    <% if (typeof errors !='undefined' ) { %>
+        <ul>
+            <% errors.forEach(error=> { %>
+                <li>
+                    <%= error.msg %>
+                </li>
+                <% }) %>
+        </ul>
+        <% } %>
+
+            <div>
+                <form class="form-crear-editar" action="create" method="post" enctype="multipart/form-data">
+                    <div>
+                        <div>
+                            <label for="CategoryId">categoría:</label>
+                            <select name="CategoryId" id="CategoryId">
+                                    <option value=""></option>
+                                <% categorias.forEach(categoria => { %>
+                                    <option value= "<%= categoria.id %>"> <%= categoria.nombre %> </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="licencia">Licencia:</label>
+                            <select name="licencia" id="licencia">
+                                <option value="Naruto">Naruto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="nombre">Nombre del producto: </label>
+                        <input type="text" name="nombre" id="product"
+                            value="<%= typeof values != 'undefined' ? values.nombre : '' %>">
+                    </div>
+
+                    <!--             <div>
+                <textarea name="text" placeholder="Descripción del producto" id="text" value=""><%= values.text || '' %></textarea>
+            </div> -->
+
+                    <div>
+                        <!--                 <div>
+                    <label for="sku">SKU:</label>
+                    <input type="text" name="sku" placeholder="NAR001012" id="sku">
+                </div> -->
+                        <div>
+                            <label for="precio">Precio:</label>
+                            <input type="text" placeholder="$ 1.799,00" name="precio" id="precio"
+                                value="<%= typeof values != 'undefined' ? values.precio : '' %>">
+                        </div>
+                        <!--                 <div>
+                    <label for="stock">Stock:</label>
+                    <input type="text" placeholder="10" name="stock" id="stock">
+                </div> -->
+                    </div>
+
+                    <div>
+                        <!--                 <label for="descuento">Descuento:</label>
+                <input type="text" placeholder="10%" name="descuento" id="descuento"> -->
+                        <!--                 <div>
+                    <label for="cuotas">Cuotas:</label>
+                    <select type="text" name="cuotas" id="cuotas">
+                        <option value="6 sin interes">6 Cuotas sin interés</option>
+                        <option value="12 sin interes">12 Cuotas sin interés</option>
+
+                    </select>
+                </div> -->
+
+                    </div>
+
+                    <div>
+                        <label for="imagen">Imágenes:</label>
+                        <input type="file" id="imagen" name="imagen" accept="image/*" />
+                    </div>
+                    <div>
+                        <button type="submit">Agregar producto</button>
+                        <button type="reset">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+
+</main>
+
+<%- contentFor('title') %>
+    Create!
+    <%- contentFor("extracss") %>
+        <link rel="stylesheet" href="/css/create.css">
+        <!--enctype="multipart/form-data"-->

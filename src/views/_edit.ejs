@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create / Admin</title>
-    <link type="text/css" rel="stylesheet" href="../css/style.css">
-    <script defer src="../js/main.js"></script>
-
-</head>
-
-<body id="create">
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <picture class="logo">
-                <a href="index.html">
-                    <img src="../assets/img/branding/full-logo.svg" alt="Homepage Logo ">
-                </a>
-            </picture>
-            <ul class="nav" id="nav">
-                <li> <a href="index.html">Ver tienda</a></li>
-                <li> <a href="/pages/admin.html">Admin</a> </li>
-                <li> <a href="/pages/login.html">Salir</a> </li>
-            </ul>
-
-        </nav>
-        <button class="hamburger" id="ham">
-            <img src="../assets/img/icons/hamburger_icon.svg" alt="" height="30px" width="auto">
-        </button>
-    </header>
-    <!-- End Header -->
-    <main class="container">
+    <main class="container edit">
         <h1> Editor de items</h1>
         <div>
             <form class="form-crear-editar" action="">
@@ -54,6 +21,7 @@
                 <div>
                     <label for="product">Nombre del producto: </label>
                     <input type="text" placeholder="Kakashi Hatake Shippuden Saga " id="product">
+                    Kakashi Hatake Shippuden Saga
                 </div>
 
                 <div>
@@ -95,11 +63,11 @@
                 </div>
                 <div class="mini-imgs">
                     <article>
-                        <img src="../assets/img/naruto/kakashi_hatake_front.svg" alt="#">
+                        <img src="/assets/img/naruto/kakashi_hatake_front.svg" alt="#">
                         <span>Frente</span>
                     </article>
                     <article>
-                        <img src="../assets/img/naruto/kakashi_hatake_back.svg" alt="#">
+                        <img src="/assets/img/naruto/kakashi_hatake_back.svg" alt="#">
                         <span>Dorso</span>
                     </article>
                 </div>
@@ -110,24 +78,7 @@
         </div>
 
     </main>
-    <!--fOOTER-->
-    <footer>
-        <section class="container">
-            <div class="footer">
-                <ul class="footer--nav">
-                    <li> <a href="/pages/shop.html">Shop</a> </li>
-                    <li> <a href="/pages/register.html">Registrarse</a> </li>
-                    <li> <a href="/pages/login.html">Ingresar</a> </li>
-                    <li> <a href="/pages/wip.html">Contacto</a> </li>
-                </ul>
-                <picture class="footer--img">
-                    <a href="index.html"><img src="../assets/img/branding/isotype.svg" alt="logo" width="143px"></a>
-                </picture>
-            </div>
-            <p class="footer--rights"> All rights reserved 2023 - Funkoshop &copy</p>
-        </section>
-    </footer>
-    <!--end footer-->
-</body>
 
-</html>
+    <%- contentFor('title') %>
+    Edit!
+    <%- contentFor('extracss') %>

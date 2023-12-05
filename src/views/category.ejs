@@ -1,0 +1,67 @@
+<main class="container">
+    <div class="espacio-admin">
+    <!--Searchbar-->
+    <section class="searching">
+        <img id="img_lupa" src="/assets/img/icons/search_icon.svg" alt="lupa">
+        <input class="buscador-adm" type="text" placeholder="código, nombre o categoria">
+    </section>
+    <!--End searchbar-->
+
+    <section class="listado">
+        <h1 class="h1-adm">listado de categorias</h1>
+        <a class="agregar-adm" href="/admin/category/create">agregar<img id="img_suma" src="/assets/img/icons/signo-mas-round.svg"
+            alt="signo de suma"></a>
+    </section>
+    <!--tabla de categorias-->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Nombre de categoria</th>
+                <th>Categoría</th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categorias.forEach(categoria => {%>
+                <tr>
+                    <td id="id__producto"><%= categoria.id %></td>
+                    <td id="código__producto">NoData</td>
+                    <td id="nombre__producto"><%= categoria.nombre %></td>
+                    <td>
+                        <a href="/admin/category/edit/<%= categoria.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el categoria"></a>
+                        </td>
+                    <td>
+                        <form
+                        class="form-delete"
+                        style="display: inline-block;"
+                        action="category/delete/<%= categoria.id %>?_method=DELETE"
+                        method="post">
+                            <button type="submit"><img src="/assets/img/icons/delete_trash.svg" alt="eliminar el categoria"></button>                    
+                        </form>                    
+                    </td>                
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <!--End tabla categorias-->
+</div>
+</main>
+<script>
+    document.addEventListener("submit", (event) => {
+        
+        if (event.target.classList.contains('form-delete')) {
+            event.preventDefault();
+            if (confirm("Seguro de borrar?")) {
+                event.target.submit();
+            }
+        }
+    });
+</script>
+
+<%- contentFor('title') %>
+categorias!
+<%- contentFor('extracss') %>
+<link type="text/css" rel="stylesheet" href="/css/admin.css">

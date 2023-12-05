@@ -69,8 +69,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
     try {
         await sequelize.authenticate(); //chekea que conecte
-        //await sequelize.sync(); //sincroniza todo
-        await sequelize.sync({ alter: true }); // actualiza sin borrar lo viejo
+        await sequelize.sync(); //sincroniza todo
+        //await sequelize.sync({ alter: true }); // actualiza sin borrar lo viejo
         //await sequelize.sync({ force: true }); //te borra toda la data
     } catch (error) {console.log(pcolor.red(error));}
 

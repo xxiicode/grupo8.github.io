@@ -19,7 +19,7 @@ npm install
 
 modo produccion:
 ```
-node app.js
+node index.js
 ```
 
 modo Dev (+nodemon):

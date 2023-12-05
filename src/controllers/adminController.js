@@ -9,7 +9,7 @@ create: (req, res) => res.render("create", { layout: "layouts/adminLayout"}),
 edit: (req, res) => res.render("edit", { layout: "layouts/adminLayout"}),
 //edit: (req, res) => res.send("Route for admin edit id put"),
 edit: (req, res) => res.render("edit", { layout: "layouts/adminLayout"}),
-delete: (req, res) => res.send("Route for admin delete id"),
+//destroy: (req, res) => res.send("Route for admin delete id"),
 } 
 
 

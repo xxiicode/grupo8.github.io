@@ -38,27 +38,25 @@
         <div class="cards">
             <section>
                 <div class="item">
-
+                    <% productos.forEach(producto => {%>
                     <article class="card-item" id="articulo">
                         <span class="nuevo">nuevo</span>
-                        <a href="shop/item/22">
+                        <a href="shop/item/<%= producto.id %>">
                             <picture class="card-item-cover">
-                                <img class="img-front" src="../assets/img/star-wars/trooper-1.webp"
+                                <img class="img-front" src="/uploads/funko_<%= producto.id%>.webp"
                                     alt="Figura Funko de Star Wars: Stormtrooper">
-                                <img class="img-back" src="../assets/img/star-wars/trooper-box.webp"
+                                <img class="img-back" src="/uploads/funko_<%= producto.id%>_.webp"
                                     alt="Figura Funko de Star Wars: Stormtrooper en Caja">
                             </picture>
                             <div class="item-content">
                                 <p class="licencia">star wars</p>
-                                <h4 class="nombre">stormtrooper lightsaber</h4>
-                                <p class="precio">$ 1799,99</p>
+                                <h4 class="nombre"><%= producto.nombre %></h4>
+                                <p class="precio"><%= producto.precio %></p>
                                 <p class="promo">3 cuotas sin interés</p>
                             </div>
                         </a>
                     </article>
-
-                    
-
+                    <% }) %>
                 </div>
 
             </section>

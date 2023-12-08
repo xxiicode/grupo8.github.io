@@ -14,7 +14,6 @@ const adminControllers = {
              // attributes: ["id", "nombre", "precio"],
               include: "Category" 
             });
-            console.log(productos); 
             res.render("admin", { productos, layout: "layouts/adminLayout" });
         } catch (error) {
             console.log(error);

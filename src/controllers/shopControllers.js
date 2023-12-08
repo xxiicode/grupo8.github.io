@@ -1,8 +1,18 @@
+const model = require('../models/product')
+
 const shopControllers = {
-    shop:  (req, res) => res.render("shop",{layout: "layouts/mainLayout"}), // esta usando el layout de admin, para test
-    item: (req, res) => res.render("item",{layout: "layouts/shopLayout"}),
+    shop: async (req, res) => {
+        try {
+            const productos = await model.findAll();
+            res.render("shop", { productos, layout: "layouts/mainLayout" })
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error)
+        }
+    },
+    item: (req, res) => res.render("item", { layout: "layouts/shopLayout" }),
     itemAdd: (req, res) => res.send('Add item'),
-    cart: (req, res) => res.render("cart",{layout:"layouts/mainLayout"}),
+    cart: (req, res) => res.render("cart", { layout: "layouts/mainLayout" }),
     cartEdit: (req, res) => res.send('Edit cart'),
 }
 

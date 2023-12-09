@@ -1,4 +1,5 @@
-console.log ('Somos Grupo 8');
+console.log('Somos Grupo 8:\nLean Bilokapic\nAgustina Sangiacomo\nAgustina Casot \nFernanda Aranciaga\nEugenia Merino');
+
 
 let ham = document.getElementById("ham");
 let nav = document.getElementById("nav");

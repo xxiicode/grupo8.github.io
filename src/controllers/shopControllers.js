@@ -21,7 +21,8 @@ const shopControllers = {
     item: async (req, res) => {
         try {
             const producto = await model.findByPk(req.params.id);
-            res.render("item", { producto, layout: "layouts/shopLayout" })
+            const relacionados = await model.findAll();	
+            res.render("item", { producto, relacionados, layout: "layouts/shopLayout" })
         } catch (error) {
             console.log(error);
             res.status(500).send(error)

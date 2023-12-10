@@ -131,7 +131,7 @@ h2 {
     color: var(--light-font-solid);
     padding: var(--spacing-8) var(--spacing-12);
     position: absolute;
-    right: 0;
+    right: 16px;
     text-transform: uppercase;
 }
 
@@ -142,7 +142,7 @@ h2 {
 
 .card-item-cover img {
     width: 300px;
-    height: 300px;
+    height: auto;
     animation: fade .7s;
 }
 

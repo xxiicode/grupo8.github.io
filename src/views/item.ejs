@@ -1,17 +1,17 @@
     <main class="container">
         <section class="seleccionado">
             <picture>
-                <img class="img-item" src="/assets/img/star-wars/baby-yoda-1.webp"
-                    alt="Figura Funko de Star Wars: Baby Yoda">
+                <img class="img-item" src="/uploads/funko_<%= producto.id%>.webp"
+                    alt="Figura Funko de <%= producto.nombre%>">
             </picture>
             <article>
                 <p class="licencia">star wars</p>
-                <h1 class="nombre-gde">baby yoda blueball</h1>
-                <p class="descripcion"> Figura coleccionable de Baby Yoda (Grogu)- The Mandalorian Saga, edición
+                <h1 class="nombre-gde"><%= producto.nombre%></h1>
+                <p class="descripcion"> Figura coleccionable de <%= producto.nombre%>, edición
                     limitada.</p>
-                <p class="precio-gde">$1799,99</p>
+                <p class="precio-gde">$ <%= producto.precio%></p>
                 <div class="cantidades">
-                    <input type="number" name="quantity" id="quantity" placeholder="0">
+                    <input type="number" name="quantity" id="quantity" placeholder="1">
                     <div class="cantidad">
                         <button id="item-sumar" class="sum-res">+</button>
                         <button id="item-restar" class="sum-res">-</button>

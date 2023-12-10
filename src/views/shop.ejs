@@ -40,7 +40,9 @@
                 <div class="item">
                     <% productos.forEach(producto => {%>
                     <article class="card-item" id="articulo">
-                        <span class="nuevo">nuevo</span>
+                        <% if (producto.esNuevo) { %>
+                            <span class="nuevo">nuevo</span>
+                        <% } %>
                         <a href="shop/item/<%= producto.id %>">
                             <picture class="card-item-cover">
                                 <img class="img-front" src="/uploads/funko_<%= producto.id%>.webp"

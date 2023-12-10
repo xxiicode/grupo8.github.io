@@ -1,6 +1,6 @@
 const model = require('../models/product')
 const { productoEsNuevo } = require('../js/helpers');
-
+const fechaActual = new Date();
 
 const shopControllers = {
     shop: async (req, res) => {
@@ -8,7 +8,6 @@ const shopControllers = {
             const productos = await model.findAll({
                 order: [['createdAt', 'DESC']],
             });
-            const fechaActual = new Date();
             productos.forEach(producto => {
                 producto.esNuevo = productoEsNuevo(producto.createdAt, fechaActual);
             });
@@ -21,7 +20,11 @@ const shopControllers = {
     item: async (req, res) => {
         try {
             const producto = await model.findByPk(req.params.id);
-            const relacionados = await model.findAll();	
+            const relacionados = await model.findAll();
+            relacionados.forEach(relacionado => {
+                relacionado.esNuevo = productoEsNuevo(relacionado.createdAt, fechaActual);
+
+            })
             res.render("item", { producto, relacionados, layout: "layouts/shopLayout" })
         } catch (error) {
             console.log(error);

@@ -30,8 +30,10 @@
                 <div class="slide glide__slides">
                     <% relacionados.forEach(relacionado => {%>
                     <article class="card-item glide__slide" id="articulo">
-                        <span class="nuevo">NUEVO</span>
-                        <a href="/store/item/1">
+                        <% if (relacionado.esNuevo) { %>
+                            <span class="nuevo">nuevo</span>
+                        <% } %>
+                        <a href="<%= relacionado.id %>">
                             <picture class="card-item-cover">
                                 <img class="img-front" src="/uploads/funko_<%= relacionado.id%>.webp"
                                     alt="Figura Funko de Star Wars: Stormtrooper">

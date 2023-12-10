@@ -844,6 +844,11 @@ footer {
 /*/////////////////////////////////////////////ADMIN////////////////////////////////////////////// */
 
 /*///// Create & Edit //////*/
+
+.img-edit {
+    width: 200px;
+    border: 1px solid #747474;
+}
 .form-crear-editar {
     display: flex;
     flex-wrap: wrap;

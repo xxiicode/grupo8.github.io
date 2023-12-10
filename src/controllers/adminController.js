@@ -78,13 +78,14 @@ const adminControllers = {
 
     edit: async (req, res) => {
         try {
-            const producto = await model.findByPk(req.params.id);
+            const producto = await model.findByPk(req.params.id, {include: "Category"});
             if (producto) {
                 const categorias = await modelCategory.findAll({
                     order: [["nombre", "ASC"]]
                 });
                 res.render("edit", {
-                    values: producto, categorias,
+                    values: producto,
+                    categorias, producto,
                     layout: "layouts/adminLayout"});
             } else {
                 res.status(404).send("el producto no existe")

@@ -166,6 +166,7 @@ const adminControllers = {
                     }
                 );
             }
+            console.log("Producto eliminado");
             res.redirect("/admin")
         } catch (error) {
             console.log(error);

@@ -1,8 +1,8 @@
 function productoEsNuevo(fechaCreacion, fechaActual) {
     const fechaProducto = new Date(fechaCreacion);
-    const unDiaAtras = new Date();
-    unDiaAtras.setDate(unDiaAtras.getDate() - 1);
-    return fechaProducto >= unDiaAtras && fechaProducto <= fechaActual;
+    const unaSemanaAtras = new Date();
+    unaSemanaAtras.setDate(unaSemanaAtras.getDate() - 3);
+    return fechaProducto >= unaSemanaAtras && fechaProducto <= fechaActual;
 }
 
 module.exports = { productoEsNuevo };

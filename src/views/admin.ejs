@@ -1,5 +1,4 @@
 <main class="container">
-    <div class="espacio-admin">
     <!--Searchbar-->
     <section class="searching">
         <img id="img_lupa" src="/assets/img/icons/search_icon.svg" alt="lupa">
@@ -9,10 +8,11 @@
 
     <section class="listado">
         <h1 class="h1-adm">listado de productos</h1>
-        <a class="agregar-adm" href="/admin/create">agregar<img id="img_suma" src="/assets/img/icons/signo-mas-round.svg"
-            alt="signo de suma"></a>
+        <a class="agregar-adm" href="/admin/create">agregar<img id="img_suma"
+                src="/assets/img/icons/signo-mas-round.svg" alt="signo de suma"></a>
     </section>
     <!--tabla de productos-->
+    <div class="overflow">
     <table>
         <thead>
             <tr>
@@ -20,39 +20,47 @@
                 <th>Código</th>
                 <th>Nombre del producto</th>
                 <th>Precio </th>
-                <th><a style="color:blueviolet" href="/admin/category" title="crear categoria!!" onmouseover="this.style.color='red'" onmouseout="this.style.color='blueviolet'">Categoría</a></th>
+                <th><a style="color:blueviolet" href="/admin/category" title="crear categoria!!"
+                        onmouseover="this.style.color='red'" onmouseout="this.style.color='blueviolet'">Categoría</a>
+                </th>
                 <th> </th>
                 <th> </th>
             </tr>
         </thead>
         <tbody>
-            <% productos.forEach(producto => {%>
+            <% productos.forEach(producto=> {%>
                 <tr>
-                    <td id="id__producto"><%= producto.id %></td>
+                    <td id="id__producto">
+                        <%= producto.id %>
+                    </td>
                     <td id="código__producto">NoData</td>
-                    <td id="nombre__producto"><%= producto.nombre %></td>
-                    <td id="categoria__producto">€<%= producto.precio %></td>
-                    <td><%= producto.Category.nombre %></td>
-                    <td><a href="/admin/edit/<%= producto.id %>"><img src="/assets/img/icons/edit_pencil.svg" alt="editar el producto"></a></td>
+                    <td id="nombre__producto">
+                        <%= producto.nombre %>
+                    </td>
+                    <td id="categoria__producto">€<%= producto.precio %>
+                    </td>
                     <td>
-                        <form
-                        class="form-delete"
-                        style="display: inline-block;"
-                        action="admin/delete/<%= producto.id %>?_method=DELETE"
-                        method="post">
-                            <button type="submit"><img src="/assets/img/icons/delete_trash.svg" alt="eliminar el producto"></button>                    
-                        </form>                    
-                    </td>                
+                        <%= producto.Category.nombre %>
+                    </td>
+                    <td><a href="/admin/edit/<%= producto.id %>"><img src="/assets/img/icons/edit_pencil.svg"
+                                alt="editar el producto"></a></td>
+                    <td>
+                        <form class="form-delete" style="display: inline-block;"
+                            action="admin/delete/<%= producto.id %>?_method=DELETE" method="post">
+                            <button type="submit"><img src="/assets/img/icons/delete_trash.svg"
+                                    alt="eliminar el producto"></button>
+                        </form>
+                    </td>
                 </tr>
-            <% }) %>
+                <% }) %>
         </tbody>
     </table>
-    <!--End tabla productos-->
 </div>
+    <!--End tabla productos-->
 </main>
 <script>
     document.addEventListener("submit", (event) => {
-        
+
         if (event.target.classList.contains('form-delete')) {
             event.preventDefault();
             if (confirm("Seguro de borrar?")) {
@@ -63,6 +71,6 @@
 </script>
 
 <%- contentFor('title') %>
-admin!
-<%- contentFor('extracss') %>
-<link type="text/css" rel="stylesheet" href="/css/admin.css">
+    admin!
+    <%- contentFor('extracss') %>
+        <link type="text/css" rel="stylesheet" href="/css/admin.css">

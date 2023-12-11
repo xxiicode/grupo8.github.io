@@ -55,7 +55,6 @@
 table {
   table-layout: auto;
   width: 94%;
-  justify-content: space-between;
 }
 
 thead {
@@ -101,6 +100,12 @@ td {
   text-transform: capitalize;
 }
 
+.overflow {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap; 
+}
 
 /*RESPONSIVE ADMIN*/
 

@@ -59,7 +59,7 @@ const adminControllers = {
                 console.log(req.file);
                 sharp(req.file.buffer)
                     .resize(500)
-                    .toFile(path.resolve(__dirname, `../../public/uploads/funko_${producto.id}.jpg`));  // tmb puede dos datos(500, 500)
+                    .toFile(path.resolve(__dirname, `../../public/uploads/funko_${producto.id}.webp`));  // tmb puede dos datos(500, 500)
 
             }
             res.redirect("/admin/");
@@ -158,7 +158,7 @@ const adminControllers = {
             if (destroyed == 1) {
                 fs.unlink(
                     path.resolve(
-                        __dirname, `../../public/uploads/funko_${req.params.id}.jpg`
+                        __dirname, `../../public/uploads/funko_${req.params.id}.webp`
                     ), (error) => {
                         if (error) {
                             console.log(error);

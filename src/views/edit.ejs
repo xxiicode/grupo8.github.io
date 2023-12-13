@@ -20,10 +20,11 @@
                                 value="<%= typeof values != 'undefined' ? values.CategoryId : '' %>">
                                 <option value=""></option>
                                 <% categorias.forEach(categoria=> { %>
-                                    <option value="<%= categoria.id %>" <%=(values && values.CategoryId==categoria.id)
-                                        ? 'selected' : '' %>>
+                                    <option value="<%= categoria.id %>"
+                                        <%= categoria.id == values.CategoryId ? 'selected' : '' %>>    
                                         <%= categoria.nombre %>
                                     </option>
+                                    
                                     <% }) %>
                             </select>
                         </div>
